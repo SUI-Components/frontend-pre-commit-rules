@@ -1,0 +1,26 @@
+{
+  "name": "@schibstedspain/pre-commit-reactjs",
+  "version": "1.0.0",
+  "description": "ReactJS precommit rules",
+  "scripts": {
+    "install": "node bin/install.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scm-spain/pre-commit-reactjs.git"
+  },
+  "keywords": [
+    "ReactJS",
+    "precommit",
+    "rules"
+  ],
+  "author": "Carlos Villuendas <carlosvillu@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scm-spain/pre-commit-reactjs/issues"
+  },
+  "homepage": "https://github.com/scm-spain/pre-commit-reactjs#readme",
+  "dependencies": {
+    "git-validate": "^1.2.1"
+  }
+}
