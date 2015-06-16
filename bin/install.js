@@ -2,4 +2,8 @@
 
 var Validate = require('git-validate');
 
+Validate.copy('../eslintrc', '.eslintrc');
+Validate.copy('../editorconfig', '.editorconfig');
+Validate.copy('../jscsrc', '.jscsrc');
+
 Validate.installHooks('pre-commit');
