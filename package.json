@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/pre-commit-reactjs",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "ReactJS precommit rules",
   "scripts": {
     "install": "node bin/install.js"
