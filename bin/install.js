@@ -2,10 +2,10 @@
 
 var Validate = require('git-validate');
 
-Validate.copy('../eslintrc', '.eslintrc', true);
-Validate.copy('../editorconfig', '.editorconfig', true);
-Validate.copy('../jscsrc', '.jscsrc', true);
-Validate.copy('../babelrc', '.babelrc', true);
-Validate.copy('../csslintrc', '.csslintrc', true);
+Validate.copy('../eslintrc', '.eslintrc', { overwrite: true });
+Validate.copy('../editorconfig', '.editorconfig', { overwrite: true });
+Validate.copy('../jscsrc', '.jscsrc', { overwrite: true });
+Validate.copy('../babelrc', '.babelrc', { overwrite: true });
+Validate.copy('../csslintrc', '.csslintrc', { overwrite: true });
 
 Validate.installHooks('pre-commit');
