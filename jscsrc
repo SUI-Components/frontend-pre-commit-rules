@@ -18,7 +18,7 @@
     "allowRegex": true
   },
   "validateIndentation": 2,
-  "validateQuoteMarks": "\"",
+  "validateQuoteMarks": "\'",
 
   "disallowMultipleLineStrings": true,
   "disallowMixedSpacesAndTabs": true,
