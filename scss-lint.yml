@@ -100,7 +100,7 @@ linters:
 
   SelectorFormat:
     enabled: true
-    class_convention: '^(?:[a-zA-Z0-9]*)\-[a-zA-Z]{1}[a-z][a-zA-Z0-9]*(?:\-[a-z][a-zA-Z0-9]*)?(?:\-\-[a-z][a-zA-Z0-9]*)?$'
+    class_convention: '^(?:[a-zA-Z0-9]*)\-[A-Z]{1}[a-z][a-zA-Z0-9]*(?:\-[a-z][a-zA-Z0-9]*)?(?:\-\-[a-z][a-zA-Z0-9]*)?$'
 
   Shorthand:
     enabled: true
