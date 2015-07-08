@@ -4,7 +4,8 @@
 		"browser": true,
 		"node": true,
 		"amd": true,
-		"jasmine": true
+		"jasmine": true,
+        "jquery": true
 	},
 	"globals": {
 		"jest": true,
@@ -61,20 +62,34 @@
 		"no-proto": 2,
 		"no-redeclare": 2,
 		"no-regex-spaces": 2,
+        "no-extra-semi": 1,
+        "no-irregular-whitespace": 2,
+        "no-multi-spaces": 2,
+        "no-trailing-spaces": [2, {
+            "skipBlankLines": true
+        }],
+        "no-use-before-define": [2, "nofunc"],
 
 		"break-style": 0,
 		"block-scoped-var": 0,
 		"camelcase": 2,
+        "comma-dangle": 0,
 		"curly": 2,
 		"dot-notation": 2,
 		"eqeqeq": 2,
 		"guard-for-in": 0,
+        "key-spacing": [2, {
+            "beforeColon": false,
+            "afterColon": true
+        }],
 		"max-depth": [0, 4],
 		"new-cap": 2,
 		"new-parens": 2,
 		"quotes": [2, "single"],
 		"quote-props": 0,
 		"radix": 2,
+        "semi": 0,
+        "space-infix-ops": 2,
 		"strict": 0,
 		"use-isnan": 2,
 		"valid-typeof": 1,
