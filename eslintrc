@@ -16,14 +16,14 @@
     "react"
   ],
     "ecmaFeatures": {
-        "arrowFunctions": true,
-        "blockBindings": true,
+    "arrowFunctions": true,
+    "blockBindings": true,
     "templateStrings": true,
     "generators": true,
     "classes": true,
     "modules": true,
-        "forOf": true,
-        "jsx": true,
+    "forOf": true,
+    "jsx": true,
     "objectLiteralComputedProperties": true
     },
     "rules": {
