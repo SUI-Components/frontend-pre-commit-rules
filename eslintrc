@@ -73,7 +73,7 @@
         "break-style": 0,
         "block-scoped-var": 0,
         "camelcase": 2,
-        "comma-dangle": "never",
+        "comma-dangle": 2,
         "curly": 2,
         "dot-notation": 2,
         "eqeqeq": 2,
