@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/frontend-pre-commit-rules",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "Frontend precommit rules",
   "scripts": {
     "install": "node bin/install.js"
