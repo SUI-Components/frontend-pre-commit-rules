@@ -1,15 +1,6 @@
 {
   "esprima": "./node_modules/babel-jscs",
 
-  "requireCurlyBraces": [
-    "if",
-    "else",
-    "for",
-    "while",
-    "do",
-    "try",
-    "catch"
-  ],
   "requireOperatorBeforeLineBreak": true,
   "requireCamelCaseOrUpperCaseIdentifiers": true,
   "maximumLineLength": {

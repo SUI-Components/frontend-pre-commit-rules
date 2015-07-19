@@ -62,6 +62,7 @@
 		"no-redeclare": 2,
 		"no-regex-spaces": 2,
 
+    "brace-stlyle": [2, "1tbs"],
 		"break-style": 0,
 		"block-scoped-var": 0,
 		"camelcase": 2,
