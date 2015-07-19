@@ -72,7 +72,7 @@
     "brace-style": [2, "1tbs"],
 		"break-style": 0,
 		"block-scoped-var": 0,
-		"camelcase": 2,
+		"camelcase": [2, {"properties": "always"}],
     "comma-dangle": 2,
     "curly": 2,
     "dot-notation": 2,

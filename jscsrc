@@ -2,7 +2,6 @@
   "esprima": "./node_modules/babel-jscs",
 
   "requireOperatorBeforeLineBreak": true,
-  "requireCamelCaseOrUpperCaseIdentifiers": true,
   "validateQuoteMarks": "'",
 
   "disallowMultipleLineStrings": true,
