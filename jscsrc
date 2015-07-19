@@ -3,11 +3,6 @@
 
   "requireOperatorBeforeLineBreak": true,
   "requireCamelCaseOrUpperCaseIdentifiers": true,
-  "maximumLineLength": {
-    "value": 120,
-    "allowComments": true,
-    "allowRegex": true
-  },
   "validateIndentation": 2,
   "validateQuoteMarks": "'",
 
