@@ -62,7 +62,7 @@
 		"no-redeclare": 2,
 		"no-regex-spaces": 2,
 
-    "brace-stlyle": [2, "1tbs"],
+    "brace-style": [2, "1tbs"],
 		"break-style": 0,
 		"block-scoped-var": 0,
 		"camelcase": 2,
@@ -70,6 +70,7 @@
 		"dot-notation": 2,
 		"eqeqeq": 2,
 		"guard-for-in": 0,
+    "indent": [2, 2, {"indentSwitchCase": true}],
 		"max-depth": [0, 4],
     "max-len": [2, 120, 4],
 		"new-cap": 2,
