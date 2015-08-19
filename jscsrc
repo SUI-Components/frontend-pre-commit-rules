@@ -1,24 +1,7 @@
 {
   "esprima": "./node_modules/babel-jscs",
 
-  "requireCurlyBraces": [
-    "if",
-    "else",
-    "for",
-    "while",
-    "do",
-    "try",
-    "catch"
-  ],
   "requireOperatorBeforeLineBreak": true,
-  "requireCamelCaseOrUpperCaseIdentifiers": true,
-  "maximumLineLength": {
-    "value": 120,
-    "allowComments": true,
-    "allowRegex": true
-  },
-  "validateIndentation": 2,
-  "validateQuoteMarks": "'",
 
   "disallowMultipleLineStrings": true,
   "disallowMixedSpacesAndTabs": true,
