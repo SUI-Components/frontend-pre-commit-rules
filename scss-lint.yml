@@ -89,7 +89,6 @@ linters:
 
   PropertySortOrder:
     enabled: true
-    order: concentric
 
   PropertySpelling:
     enabled: true
