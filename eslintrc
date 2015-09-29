@@ -52,7 +52,7 @@
       "no-undef": 2,
       "no-undef-init": 2,
       "no-underscore-dangle": 0,
-      "no-unused-expressions": [2, { allowShortCircuit: true, allowTernary: true }],
+      "no-unused-expressions": 2,
       "no-octal": 2,
       "no-octal-escape": 2,
       "no-multi-str": 0,
