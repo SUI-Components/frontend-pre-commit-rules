@@ -1,0 +1,97 @@
+@import '~@schibstedspain/theme-basic/src/settings';
+
+header {
+  background-color: lightblue;
+  height: 150px;
+  padding: 1em;
+}
+
+header img,
+ {
+  float: left;
+  margin-bottom: 1em;
+  width: 120px;
+}
+
+header h1 {
+  float: left;
+  margin: 1em 1em 0 1em;
+  max-width: 650px;
+}
+
+header h4 {
+  float: left;
+  margin: 0 2em;
+}
+
+body {
+  background-color: #dddddd;
+  font-family: $ff-sans-serif;
+  margin: 0;
+}
+
+.block {
+  margin-bottom: 2em;
+  max-width: 750px;
+  padding: 1em;
+}
+
+.block--centered {
+  margin: 0 auto;
+}
+
+.block-highlighted {
+  background-color: #4AAFD0;
+}
+
+.block-usecase {
+  background-color: #EEEEEE;
+}
+
+.block-github {
+  background-color: #d5d5d5;
+}
+
+.block-npm {
+  background-color: #cb3837;
+  color: white;
+}
+
+.block-dark {
+  background-color: #333333;
+  color: white;
+}
+
+.block-dark a {
+  color: #EEEEEE;
+}
+
+.block-npm a {
+  color: white;
+}
+
+.footer {
+  height: 200px;
+}
+
+.footer h2 {
+  margin: 1em;
+  padding: 0;
+}
+
+.footer p {
+  margin: 0;
+}
+
+
+.footer img {
+  float: left;
+  margin: 1em 3em 1em;
+  width: 100px;
+}
+
+
+#main {
+  max-width: 750px;
+  margin: 0 auto;
+}

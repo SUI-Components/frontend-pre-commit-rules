@@ -1,0 +1,97 @@
+<header>
+  <div class="block block--centered">
+    <img src='img/sui-components.png' />
+    <h1>SUI-Card React component</h1>
+    <h4>An open source React card component</h4>
+  </div>
+</header>
+
+<section class="block-highlighted block--centered">
+  <div class="block block--centered">
+    <h2>Description</h2>
+    <p>The SUI-Card component features a generic div tag including two more nested containers one on top of the other.</p>
+  </div>
+</section>
+
+<section class="block block-usecase block--centered">
+  <div class="centered-block">
+    <p>Top and bottom containers may fit any content provided to Sui-Card. Use the following classes to layout styling:</p>
+    <ul>
+      <li>
+        <strong>sui-Card-topComponent:</strong>
+        <p>This is the top placeholder where you can fit any custom component: from a simple picture to a full featured slider.</p>
+        <p>In the example below an anchor element wrapping an image is stored in constant 'top' and passed to SUI-Card component as 'top-content'.</p>
+      </li>
+      <li>
+        <strong>sui-Card-bottomComponent:</strong>
+        <p>This is the bottom placeholder. Pass a custom component or insert your static HTML code as shown in example.</p>
+      </li>
+    </ul>
+    <h2>Sub-components data structure</h2>
+    <div>
+      <pre>
+        <code class="language-js">
+    // The content of constant 'top' will be inserted
+    // inside sui-Card-topComponent sub-component
+    const top = (
+        &lt;a href='http://bit.ly/1jt4zRp'&gt;
+          &lt;img src='http://bit.ly/1FzqHDX' /&gt;
+        &lt;/a&gt;
+    );
+
+    // The content of constant 'bottom' will be inserted
+    // inside sui-Card-bottomComponent sub-component
+    const bottom = (
+      &lt;div&gt;
+        &lt;h2&gt;Fishermen at work&lt;/h2&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit.&lt;/p&gt;
+        &lt;a href='http://google.com'&gt;Contact&lt;/a&gt;
+      &lt;/div&gt;
+    );
+        </code>
+      </pre>
+    </div>
+    <p>If no topComponent property is passed a default picture with link can be set using the following props:</p>
+    <h2>SUI-Card Component implementation</h2>
+    <div id="main"></div>
+  </div>
+</section>
+
+<section class="footer block-github block--centered">
+  <div class="block block--centered">
+    <img src="img/github-logo.png" />
+    <h2>GitHub</h2>
+    <p>The SUI-Card component is available as an open source resource in GitHub.</p>
+    <a href="https://github.com/SUI-Components/sui-card">https://github.com/SUI-Components/sui-card</a>
+  </div>
+</section>
+
+<section class="footer block-npm block--centered">
+  <div class="block block--centered">
+    <img src="img/npm-logo.png" />
+    <div>
+      <h2>Node Package Manager</h2>
+      <p>The SUI-Card component is available as an open source resource in NPM.</p>
+      <a href="https://www.npmjs.com/package/@schibstedspain/sui-card">https://www.npmjs.com/package/@schibstedspain/sui-card</a>
+    </div>
+  </div>
+</section>
+
+<section class="block-dark block--centered">
+  <div class="block block--centered">
+    <h2>Contributions</h2>
+    <p>There is still room for improvement. If you are considering adding a feature <strong>don't hesitate to fork and pull request</strong></p>
+    <h2>Share</h2>
+    <p>Star and share SUI-card component to show your support. In addition you can follow the twitter account <a href="https://twitter.com/SUIEngineers">SUIEngineers</a> to keep in touch.</p>
+    <h2>License</h2>
+    <p>This component is released under <a href="https://github.com/SUI-Components/sui-card/blob/master/MIT-LICENSE.txt">MIT license</a></p>
+  </div>
+</section>
+
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/mode/javascript/javascript.min.js"></script>
+<script src="./js/prism.js"></script>
+<script src="./dist/index.js"></script>
+
