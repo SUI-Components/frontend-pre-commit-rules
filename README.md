@@ -1,5 +1,7 @@
 # Frontend precommit rules for JS and CSS
 
+The main goal of this 
+
 More info in [pre-commit-hook](https://github.com/nlf/precommit-hook)
 
 ## Naming Convention

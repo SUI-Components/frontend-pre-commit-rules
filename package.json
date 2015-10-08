@@ -1,7 +1,52 @@
 {
   "name": "@schibstedspain/frontend-pre-commit-rules",
-  "version": "6.2.1",
+  "version": "6.3.0",
   "description": "Frontend precommit rules",
+  "contributors": [
+    {
+      "name": "Daniel de la Cruz",
+      "email": "daniel.delacruz@scmspain.com",
+      "url": "https://github.com/danderu"
+    },
+    {
+      "name": "David Garcia",
+      "email": "david.garcia@scmspain.com",
+      "url": "https://github.com/davecarter"
+    },
+    {
+      "name": "Carlos Villuendas",
+      "email": "carlos.villuendas@scmspain.com",
+      "url": "https://github.com/carlosvillu"
+    },
+    {
+      "name": "Joan Leon",
+      "email": "joan.leon@infojobs.net",
+      "url": "https://github.com/nucliweb"
+    },
+    {
+      "name": "Nahuel Sotelo",
+      "email": "nahuelsotelo@gmail.com",
+      "url": "https://github.com/nahuelsotelo"
+    },
+    {
+      "name": "Marcelo Alves",
+      "email": "marcelo.alves.design@gmail.com",
+      "url": "https://github.com/marcelopereirascmspain"
+    }
+  ],
+  "keywords": [
+    "ReactJS",
+    "ReactJS",
+    "Javascript",
+    "JS",
+    "CSS",
+    "SASS",
+    "lint"
+    "Linting",
+    "precommit",
+    "rules",
+    "schibstedspain",
+  ],
   "scripts": {
     "install": "node bin/install.js"
   },
@@ -9,15 +54,6 @@
     "type": "git",
     "url": "git+https://github.com/scm-spain/frontend-pre-commit-rules.git"
   },
-  "keywords": [
-    "ReactJS",
-    "precommit",
-    "rules",
-    "JS",
-    "CSS",
-    "lint"
-  ],
-  "author": "Carlos Villuendas <carlosvillu@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/scm-spain/frontend-pre-commit-rules/issues"
