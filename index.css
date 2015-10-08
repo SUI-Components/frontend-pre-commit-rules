@@ -1,5 +1,3 @@
-@import '~@schibstedspain/theme-basic/src/settings';
-
 header {
   background-color: lightblue;
   height: 150px;
@@ -26,7 +24,7 @@ header h4 {
 
 body {
   background-color: #dddddd;
-  font-family: $ff-sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin: 0;
 }
 
