@@ -1,6 +1,6 @@
 # Frontend precommit rules for JS and CSS
 
-The main goal of this 
+#### The main goal of this set of rules is to align
 
 More info in [pre-commit-hook](https://github.com/nlf/precommit-hook)
 
