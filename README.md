@@ -7,15 +7,19 @@
 In order to do so we decided to rely on [Eslint](http://eslint.org/), a great Javascript linter by [Nicholas C. Zakas](https://twitter.com/slicknet) and [SCSS-Lint](https://github.com/brigade/scss-lint) for... yes! SASS linting.
 
 #### Index
+* [Linter Installation](#linterinstallation)
+- [SublimeLinter SASS](#sublimeLinter-sass)
+- [Eslint for JS Linting](#eslint-for-js-linting)
+
 * [SASS Syntax](#sass-syntax)
-    - [BangFormat](#bangformat)
-    - [BorderZero](#borderzero)
-    - [ColorVariable](#colorvariable)
-    - [Comment](#comment)
-    - [DebugStatement](#debugstatement)
-    - [DeclarationOrder](#declarationorder)
-    - [DuplicateProperty](#duplicateproperty)
-    - [ElsePlacement](#elseplacement)
+- [BangFormat](#bangformat)
+- [BorderZero](#borderzero)
+- [ColorVariable](#colorvariable)
+- [Comment](#comment)
+- [DebugStatement](#debugstatement)
+- [DeclarationOrder](#declarationorder)
+- [DuplicateProperty](#duplicateproperty)
+- [ElsePlacement](#elseplacement)
 
 #### TL;DR
 If you are wondering if this set of rules if for you here's a brief description. Keep reading to get a detailed description.
@@ -37,6 +41,24 @@ If you are wondering if this set of rules if for you here's a brief description.
 - Set properties to `0` instead of `none`.
 - Match the selector format to the [Naming Convention](#naming-convention)
 - ...
+
+----
+
+# Linter Installation
+We use Sublime Text 3 running [Sublime Linter Plugin](http://www.sublimelinter.com/en/latest/). This plugin is no longer including linting files so you need to install them apart:
+
+#### SublimeLinter SASS
+- Open Package control by typing: `cmd + shift + p` and then search for `install package`
+- Select `SublimeLinter-contrib-sass-lint`
+- Reopen Sublime Text if necessary.
+- SASS linting rules must be defined in a `.scss-lint.yml` file in the root directory.
+
+#### Eslint for JS Linting
+- Install the Eslint CLI from a global node package by typing `npm i -g eslint` in your terminal.
+- Open Package control by typing: `cmd + shift + p` and then search for `install package`
+- Select `SublimeLinter-contrib-eslint`
+- Reopen Sublime Text if necessary
+- Javascript linting rules must be defined in a `.eslintrc` file in the root directory.
 
 ----
 
@@ -78,7 +100,7 @@ To avoid colour entropy all arround the site is mandatory to set colour using SA
 **Bad: literal color**
 ```scss
 .sui-Card-title {
-  color: green;
+color: green;
 }
 ```
 
@@ -89,7 +111,7 @@ $body-color: #c0ffee;
 ...
 
 .sui-Card-title {
-  color: $body-color;
+color: $body-color;
 }
 ```
 
@@ -120,26 +142,26 @@ Place `@extend` and `@include` before properties so you can overwrite them later
 **Bad**
 ```scss
 .sui-Card-mediaContent {
-  p {
-    ...
-  }
+p {
+...
+}
 
-  color: #bg-light;
-  @extend %sui-Card-boxContent;
-  @include message-box();
+color: #bg-light;
+@extend %sui-Card-boxContent;
+@include message-box();
 }
 ```
 
 **Good**
 ```scss
 .sui-Card-mediaContent {
-  @extend %sui-Card-boxContent;
-  @include message-box();
-  color: #bg-light;
+@extend %sui-Card-boxContent;
+@include message-box();
+color: #bg-light;
 
-  p {
-    ...
-  }
+p {
+...
+}
 }
 ```
 
@@ -150,9 +172,9 @@ Usually, if you set the same property twice inside the same selector is a mistak
 **Bad**
 ```scss
 .sui-Card {
-  float: left;
-  text-transform: uppercase;
-  float: right; // Second declaration
+float: left;
+text-transform: uppercase;
+float: right; // Second declaration
 }
 ```
 
@@ -163,19 +185,19 @@ Place `@else` statements on the same line as the preceding curly brace.
 **Bad**
 ```scss
 @if {
-  ...
+...
 }
 @else {
-  ...
+...
 }
 ```
 
 **Good**
 ```scss
 @if {
-  ...
+...
 } @else {
-  ...
+...
 }
 ```
 
