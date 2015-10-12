@@ -7,7 +7,9 @@
 In order to do so we decided to rely on [Eslint](http://eslint.org/), a great Javascript linter by [Nicholas C. Zakas](https://twitter.com/slicknet) and [SCSS-Lint](https://github.com/brigade/scss-lint) for... yes! SASS linting.
 
 #### Index
-* [SASS](SASS Syntax)
+* [SASS](sass-syntax)
+    * [Naming Convention](#naming-convention)
+    *
 
 #### TL;DR
 If you are wondering if this set of rules if for you here's a brief description. Keep reading to get a detailed description.
@@ -30,8 +32,24 @@ If you are wondering if this set of rules if for you here's a brief description.
 - Match the selector format to the [Naming Convention](#naming-convention)
 - ...
 
-## SASS Syntax
+----
 
+# SASS Syntax
+In order to establish a common name space there are some rules to follow:
+
+### BangFormat
+
+Defines the right use of  *the bang* `!` in `!default`, `!global`,  and `!optional` flags.
+
+**Bad**
+```scss
+$c-bg-light: #ffffff!default
+```
+
+**Good**
+```scss
+$c-bg-light: #ffffff !default
+```
 
 ## Naming Convention
 Based in [SUIT CSS](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md)
