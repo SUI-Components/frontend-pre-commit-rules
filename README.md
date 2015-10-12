@@ -27,7 +27,7 @@ If you are wondering if this set of rules if for you here's a brief description.
 - Leave an empty line between blocks.
 - Merge rules of same selector.
 - Set properties to `0` instead of `none`.
-- Match the selector format to the [Naming Convention](#Naming-Convention)
+- Match the selector format to the [Naming Convention](#naming-convention)
 - ...
 
 ## SASS Syntax
