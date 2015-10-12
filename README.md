@@ -35,7 +35,7 @@ If you are wondering if this set of rules if for you here's a brief description.
 ----
 
 # SASS Syntax
-In order to establish a common name space there are some rules to follow:
+Here you'll find a use case example for every SASS linting rule specified in this set:
 
 ### BangFormat
 
@@ -50,6 +50,43 @@ $c-bg-light: #ffffff!default
 ```scss
 $c-bg-light: #ffffff !default
 ```
+
+## BorderZero
+
+Set properties to `border: 0` over `border: none`.
+
+**Bad**
+```scss
+border: none;
+```
+
+**Good**
+```scss
+border: 0;
+```
+
+## ColorVariable
+
+To avoid colour entropy all arround the site is mandatory to set colour using SASS variables as shown in the example below. Colour parametrization ensures better maintainability and are more verbose than setting an hex value as `#bada55`
+
+**Bad: literal color**
+```scss
+.sui-Card-title {
+  color: green;
+}
+```
+
+**Good: refer to color by variable name**
+```scss
+$body-color: #c0ffee;
+
+...
+
+.sui-Card-title {
+  color: $body-color;
+}
+```
+
 
 ## Naming Convention
 Based in [SUIT CSS](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md)
