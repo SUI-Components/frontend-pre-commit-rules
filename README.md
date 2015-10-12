@@ -7,9 +7,9 @@
 In order to do so we decided to rely on [Eslint](http://eslint.org/), a great Javascript linter by [Nicholas C. Zakas](https://twitter.com/slicknet) and [SCSS-Lint](https://github.com/brigade/scss-lint) for... yes! SASS linting.
 
 #### Index
-* [SASS](sass-syntax)
-    * [Naming Convention](#naming-convention)
-    *
+* [SASS Syntax](#sass-syntax)
+    - [BangFormat](#bangformat)
+    - [BorderZero](borderzero)
 
 #### TL;DR
 If you are wondering if this set of rules if for you here's a brief description. Keep reading to get a detailed description.
