@@ -9,7 +9,13 @@ In order to do so we decided to rely on [Eslint](http://eslint.org/), a great Ja
 #### Index
 * [SASS Syntax](#sass-syntax)
     - [BangFormat](#bangformat)
-    - [BorderZero](borderzero)
+    - [BorderZero](#borderzero)
+    - [ColorVariable](#colorvariable)
+    - [Comment](#comment)
+    - [DebugStatement](#debugstatement)
+    - [DeclarationOrder](#declarationorder)
+    - [DuplicateProperty](#duplicateproperty)
+    - [ElsePlacement](#elseplacement)
 
 #### TL;DR
 If you are wondering if this set of rules if for you here's a brief description. Keep reading to get a detailed description.
@@ -87,6 +93,95 @@ $body-color: #c0ffee;
 }
 ```
 
+## Comment
+
+Althoug comments are enabled consider using `//` comments over `/* ... */`. The former are more precise single line comments while the later tends to be multiple lines comments rendered in the final css file.
+
+**Bad**
+```scss
+/* This is a multi line
+comment that gets rendered
+and tends to be too generic */
+```
+
+**Good**
+```scss
+// This is a one line concise non rendered comment
+```
+
+## DebugStatement
+
+`@debug` statements are not allowed.
+
+## DeclarationOrder
+
+Place `@extend` and `@include` before properties so you can overwrite them later if needed.
+
+**Bad**
+```scss
+.sui-Card-mediaContent {
+  p {
+    ...
+  }
+
+  color: #bg-light;
+  @extend %sui-Card-boxContent;
+  @include message-box();
+}
+```
+
+**Good**
+```scss
+.sui-Card-mediaContent {
+  @extend %sui-Card-boxContent;
+  @include message-box();
+  color: #bg-light;
+
+  p {
+    ...
+  }
+}
+```
+
+## DuplicateProperty
+
+Usually, if you set the same property twice inside the same selector is a mistake so you're not allowed to do so:
+
+**Bad**
+```scss
+.sui-Card {
+  float: left;
+  text-transform: uppercase;
+  float: right; // Second declaration
+}
+```
+
+## ElsePlacement
+
+Place `@else` statements on the same line as the preceding curly brace.
+
+**Bad**
+```scss
+@if {
+  ...
+}
+@else {
+  ...
+}
+```
+
+**Good**
+```scss
+@if {
+  ...
+} @else {
+  ...
+}
+```
+
+## PropertySortOrder
+
+Use alphabetical order in your declaration statements. If you are using Sublime Text select all the properties and press `F5` to automatic sorting. Note: No grouping or line spaces between property blocks are allowed.
 
 ## Naming Convention
 Based in [SUIT CSS](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md)
