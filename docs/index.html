@@ -16,6 +16,27 @@
 
 <section class="block block-usecase block--centered">
   <div class="centered-block">
+    <h1>Index</h1>
+
+    <ul>
+      <li><a href="#linterinstallation">Linter Installation</a></li>
+        <ul>
+          <li><a href="#sublimeLinter-sass">SublimeLinter SASS</a></li>
+          <li><a href="#eslint-for-js-linting">Eslint for JS Linting</a></li>
+        </ul>
+      <li><a href="#sass-syntax">SASS Syntax</a></li>
+        <ul>
+          <li><a href="#bangformat">BangFormat</a></li>
+          <li><a href="#borderzero">BorderZero</a></li>
+          <li><a href="#colorvariable">ColorVariable</a></li>
+          <li><a href="#comment">Comment</a></li>
+          <li><a href="#debugstatement">DebugStatement</a></li>
+          <li><a href="#declarationorder">DeclarationOrder</a></li>
+          <li><a href="#duplicateproperty">DuplicateProperty</a></li>
+          <li><a href="#elseplacement">ElsePlacement</a></li>
+        </ul>
+    </ul>
+
     <h1>TL;DR</h1>
     <p>If you are wondering if this set of rules if for you here's a brief description. Keep reading to get a detailed description.</p>
 
@@ -31,6 +52,30 @@
     </ul>
     <h2>in SASS linting you must:</h2>
     <p>If no topComponent property is passed a default picture with link can be set using the following props:</p>
+  </div>
+
+  <div>
+    <h1><a name="linterinstallation">Linter Installation</a></h1>
+    <p>We use Sublime Text 3 running [Sublime Linter Plugin](http://www.sublimelinter.com/en/latest/). This plugin is no longer including linting files so you need to install them apart:</p>
+
+    <h1><a name="sublimeLinter-sass">SublimeLinter SASS</a></h1>
+      <ul>
+        <li>Open Package control by typing: `cmd + shift + p` and then search for `install package`</li>
+        <li>Select `SublimeLinter-contrib-sass-lint`</li>
+        <li>Reopen Sublime Text if necessary.</li>
+        <li>SASS linting rules must be defined in a `.scss-lint.yml` file in the root directory.</li>
+      </ul>
+
+    <h1><a name="eslint-for-js-linting">Eslint for JS Linting</a></h1>
+    <img src="img/sublime-eslint.png" alt="" width="700">
+      <ul>
+        <li>Install the Eslint CLI from a global node package by typing `npm i -g eslint` in your terminal.</li>
+        <li>Open Package control by typing: `cmd + shift + p` and then search for `install package`</li>
+        <li>Select `SublimeLinter-contrib-eslint`</li>
+        <li>Reopen Sublime Text if necessary.</li>
+        <li>Javascript linting rules must be defined in a `.eslintrc` file in the root directory.</li>
+      </ul>
+
   </div>
 </section>
 

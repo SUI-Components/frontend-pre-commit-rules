@@ -8,18 +8,18 @@ In order to do so we decided to rely on [Eslint](http://eslint.org/), a great Ja
 
 #### Index
 * [Linter Installation](#linterinstallation)
-- [SublimeLinter SASS](#sublimeLinter-sass)
-- [Eslint for JS Linting](#eslint-for-js-linting)
+    - [SublimeLinter SASS](#sublimeLinter-sass)
+    - [Eslint for JS Linting](#eslint-for-js-linting)
 
 * [SASS Syntax](#sass-syntax)
-- [BangFormat](#bangformat)
-- [BorderZero](#borderzero)
-- [ColorVariable](#colorvariable)
-- [Comment](#comment)
-- [DebugStatement](#debugstatement)
-- [DeclarationOrder](#declarationorder)
-- [DuplicateProperty](#duplicateproperty)
-- [ElsePlacement](#elseplacement)
+    - [BangFormat](#bangformat)
+    - [BorderZero](#borderzero)
+    - [ColorVariable](#colorvariable)
+    - [Comment](#comment)
+    - [DebugStatement](#debugstatement)
+    - [DeclarationOrder](#declarationorder)
+    - [DuplicateProperty](#duplicateproperty)
+    - [ElsePlacement](#elseplacement)
 
 #### TL;DR
 If you are wondering if this set of rules if for you here's a brief description. Keep reading to get a detailed description.
