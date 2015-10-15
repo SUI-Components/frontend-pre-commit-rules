@@ -20,6 +20,13 @@ In order to do so we decided to rely on [Eslint](http://eslint.org/), a great Ja
     - [DeclarationOrder](#declarationorder)
     - [DuplicateProperty](#duplicateproperty)
     - [ElsePlacement](#elseplacement)
+    - [EmptyLineBetweenBlocks](#emptylinebetweenblocks)
+    - [EmptyRule](#emptyrule)
+    - [FinalNewline](#finalnewline)
+    - [HexLength](#hexlength)
+    - [HexNotation](#hexnotation)
+    - [HexValidation](#hexvalidation)
+    - [IdSelector](#idselector)
 
 #### TL;DR
 If you are wondering if this set of rules if for you here's a brief description. Keep reading to get a detailed description.
@@ -34,7 +41,7 @@ If you are wondering if this set of rules if for you here's a brief description.
 - Write a selector in a single line.
 - ...
 
-####**in SASS linting you must:
+####**in SASS linting you must:**
 - Leave a space after colon.
 - Leave an empty line between blocks.
 - Merge rules of same selector.
@@ -48,6 +55,8 @@ If you are wondering if this set of rules if for you here's a brief description.
 We use Sublime Text 3 running [Sublime Linter Plugin](http://www.sublimelinter.com/en/latest/). This plugin is no longer including linting files so you need to install them apart:
 
 #### SublimeLinter SASS
+- Install the SCSS-Lint CLI from a global node package by typing `npm i scss-lint -g` in your terminal.
+- Make sure that you have previously installed [Package Control](https://packagecontrol.io/installation).
 - Open Package control by typing: `cmd + shift + p` and then search for `install package`
 - Select `SublimeLinter-contrib-sass-lint`
 - Reopen Sublime Text if necessary.
@@ -200,6 +209,168 @@ Place `@else` statements on the same line as the preceding curly brace.
 ...
 }
 ```
+
+## EmptyLineBetweenBlocks
+
+Ad extra separation line between every declaration block.
+In nested declarations is also mandatory.
+
+
+**Bad: no lines separating blocks**
+```scss
+.sui-Component {
+  margin: 0;
+  .sui-Subcomponent {
+    ...
+  }
+}
+a {
+  ...
+}
+```
+
+**Good: Use an empty separation line**
+```scss
+.sui-Component {
+  margin: 0;
+
+  .sui-Subcomponent {
+    ...
+  }
+}
+
+a {
+  ...
+}
+```
+
+One line declarations doesn't apply.
+
+```scss
+.sui-Icon    { &:before { content: "\e030"; } }
+```
+
+## EmptyRule
+
+To avoid useless empty declarations in your code, this rule reports when you have an empty rule set:
+
+```scss
+.sui-Card {
+}
+```
+
+## FinalNewline
+
+Insert an empty final line of code in every file. This is helpful for better Git diffs.
+
+## HexLength
+
+Set always hexadecimal color values in long format
+
+**Bad: no long format hex value**
+
+```scss
+
+$c-bg-light: #fe0:
+
+.sui-Component {
+    background-color: $c-bg-light;
+}
+
+```
+
+**Good: Long format hex value applied to a SASS var**
+
+```scss
+
+$c-bg-light: #bada55:
+
+.sui-Component {
+    background-color: $c-bg-light;
+}
+
+```
+
+## HexNotation
+
+Reports uppercase hex color notation:
+
+**Bad: Uppercase notation is not allowed**
+
+```scss
+
+$c-bg-light: #BADA55:
+
+.sui-Component {
+    background-color: $c-bg-light;
+}
+
+```
+
+**Good: Lowercase hex notation value applied to a SASS var**
+
+```scss
+
+$c-bg-light: #bada55:
+
+.sui-Component {
+    background-color: $c-bg-light;
+}
+
+```
+
+## HexValidation
+
+Ensure hexadecimal colors are valid
+
+**Bad: Hexadecimal color values must be 6 digits long, lowercase and only if contains these characters: 0123456789abcdef**
+
+```scss
+
+$c-bg-light: #bazh5:
+
+.sui-Component {
+    background-color: $c-bg-light;
+}
+
+```
+
+**Good: Valid hex value applied to a SASS var**
+
+```scss
+
+$c-bg-light: #bada55:
+
+.sui-Component {
+    background-color: $c-bg-light;
+}
+
+```
+
+## IdSelector
+
+To avoid highly specific selectors ID's are not allowed to apply SASS styling:
+
+**Bad: ID selector**
+
+```scss
+
+#sui-Component {
+    background-color: $c-bg-light;
+}
+
+```
+
+**Good: Apply Class selector instead**
+
+```scss
+
+.sui-Component {
+    background-color: $c-bg-light;
+}
+
+```
+
 
 ## PropertySortOrder
 
