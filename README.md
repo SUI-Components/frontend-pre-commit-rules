@@ -78,7 +78,7 @@ SASS and SCSS-Lint are Ruby Gems. You need to meet the following requeriments:
 - Reopen Sublime Text if necessary.
 - SASS linting rules must be defined in a `.scss-lint.yml` file in the root directory.
 
-#### Step 5 - Install Eslint for JS Linting plugin
+### Step 5 - Install Eslint for JS Linting plugin
 
 - Install the Eslint CLI from a global node package by typing `npm i -g eslint` in your terminal.
 - Open Package control by typing: `cmd + shift + p` and then search for `install package`
