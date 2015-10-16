@@ -6,6 +6,29 @@
 
 In order to do so we decided to rely on [Eslint](http://eslint.org/), a great Javascript linter by [Nicholas C. Zakas](https://twitter.com/slicknet) and [SCSS-Lint](https://github.com/brigade/scss-lint) for... yes! SASS linting.
 
+#### TL;DR
+If you are wondering if this set of rules if for you here's a brief description. Keep reading to get a detailed description.
+
+####**SASS Linting won't let you:**
+- Leave empty declarations or duplicate properties.
+- Add comments
+- Add color values directly to a property. You must use **variables** instead.
+- Set short #hex values.
+- Use of `!important`
+- Nest properties beyond 4 levels.
+- Write a selector in a single line.
+- ...
+
+####**in SASS linting you must:**
+- Leave a space after colon.
+- Leave an empty line between blocks.
+- Merge rules of same selector.
+- Set properties to `0` instead of `none`.
+- Match the selector format to the [Naming Convention](#naming-convention)
+- ...
+
+----
+
 #### Index
 * [Linter Installation](#linterinstallation)
     - [SublimeLinter SASS](#sublimeLinter-sass)
@@ -27,27 +50,36 @@ In order to do so we decided to rely on [Eslint](http://eslint.org/), a great Ja
     - [HexNotation](#hexnotation)
     - [HexValidation](#hexvalidation)
     - [IdSelector](#idselector)
-
-#### TL;DR
-If you are wondering if this set of rules if for you here's a brief description. Keep reading to get a detailed description.
-
-####**SASS Linting won't let you:**
-- Leave empty declarations or duplicate properties.
-- Add comments
-- Add color values directly to a property. You must use **variables** instead.
-- Set short #hex values.
-- Use of `!important`
-- Nest properties beyond 4 levels.
-- Write a selector in a single line.
-- ...
-
-####**in SASS linting you must:**
-- Leave a space after colon.
-- Leave an empty line between blocks.
-- Merge rules of same selector.
-- Set properties to `0` instead of `none`.
-- Match the selector format to the [Naming Convention](#naming-convention)
-- ...
+    - [ImportantRule](#importantrule)
+    - [ImportPath](#importpath)
+    - [Indentation](#indentation)
+    - [LeadingZero](#leadingzero)
+    - [MergeableSelector](#mergeableselector)
+    - [NameFormat](#nameformat)
+    - [NestingDepth](#nestingdepth)
+    - [PlaceholderInExtend](#placeholderinextend)
+    - [PropertySortOrder](#propertysortorder)
+    - [PropertySpelling](#propertyspelling)
+    - [SelectorDepth](#selectordepth)
+    - [SelectorFormat](#selectorformat)
+    - [Shorthand](#shorthand)
+    - [SingleLinePerProperty](#singlelineperproperty)
+    - [SingleLinePerSelector](#singlelineperselector)
+    - [SpaceAfterComma](#spaceaftercomma)
+    - [SpaceAfterPropertyColon](#spaceafterPpropertycolon)
+    - [SpaceAfterPropertyName](#spaceafterpropertyname)
+    - [SpaceBeforeBrace](#spacebeforebrace)
+    - [SpaceBetweenParens](#spacebetweenparens)
+    - [StringQuotes](#stringquotes)
+    - [TrailingSemicolon](#trailingsemicolon)
+    - [TrailingZero](#trailingzero)
+    - [TrailingZero](#trailingzero)
+    - [UnnecessaryMantissa](#unnecessarymantissa)
+    - [UnnecessaryParentReference](#unnecessaryparentreference)
+    - [UrlFormat](#urlformat)
+    - [UrlQuotes](#urlquotes)
+    - [VendorPrefixes](#vendorprefixes)
+    - [ZeroUnit](#zerounit)
 
 ----
 
@@ -107,7 +139,7 @@ $c-bg-light: #ffffff!default
 $c-bg-light: #ffffff !default
 ```
 
-## BorderZero
+### BorderZero
 
 Set properties to `border: 0` over `border: none`.
 
@@ -123,7 +155,7 @@ border: none;
 border: 0;
 ```
 
-## ColorVariable
+### ColorVariable
 
 To avoid colour entropy all arround the site is mandatory to set colour using SASS variables as shown in the example below. Colour parametrization ensures better maintainability and are more verbose than setting an hex value as `#bada55`
 
@@ -147,7 +179,7 @@ $body-color: #c0ffee;
 }
 ```
 
-## Comment
+### Comment
 
 Althoug comments are enabled consider using `//` comments over `/* ... */`. The former are more precise single line comments while the later tends to be multiple lines comments rendered in the final css file.
 
@@ -165,11 +197,11 @@ and tends to be too generic */
 // This is a one line concise non rendered comment
 ```
 
-## DebugStatement
+### DebugStatement
 
 `@debug` statements are not allowed.
 
-## DeclarationOrder
+### DeclarationOrder
 
 Place `@extend` and `@include` before properties so you can overwrite them later if needed.
 
@@ -201,7 +233,7 @@ color: #bg-light;
 }
 ```
 
-## DuplicateProperty
+### DuplicateProperty
 
 Usually, if you set the same property twice inside the same selector is a mistake so you're not allowed to do so:
 
@@ -215,7 +247,7 @@ Usually, if you set the same property twice inside the same selector is a mistak
 }
 ```
 
-## ElsePlacement
+### ElsePlacement
 
 Place `@else` statements on the same line as the preceding curly brace.
 
@@ -240,7 +272,7 @@ Place `@else` statements on the same line as the preceding curly brace.
 }
 ```
 
-## EmptyLineBetweenBlocks
+### EmptyLineBetweenBlocks
 
 Ad extra separation line between every declaration block.
 In nested declarations is also mandatory.
@@ -282,7 +314,7 @@ One line declarations doesn't apply.
 .sui-Icon    { &:before { content: "\e030"; } }
 ```
 
-## EmptyRule
+### EmptyRule
 
 To avoid useless empty declarations in your code, this rule reports when you have an empty rule set:
 
@@ -291,11 +323,11 @@ To avoid useless empty declarations in your code, this rule reports when you hav
 }
 ```
 
-## FinalNewline
+### FinalNewline
 
 Insert an empty final line of code in every file. This is helpful for better Git diffs.
 
-## HexLength
+### HexLength
 
 Set always hexadecimal color values in long format
 
@@ -323,7 +355,7 @@ $c-bg-light: #bada55:
 
 ```
 
-## HexNotation
+### HexNotation
 
 Reports uppercase hex color notation:
 
@@ -351,7 +383,7 @@ $c-bg-light: #bada55:
 
 ```
 
-## HexValidation
+### HexValidation
 
 Ensure hexadecimal colors are valid
 
@@ -379,7 +411,7 @@ $c-bg-light: #bada55:
 
 ```
 
-## IdSelector
+### IdSelector
 
 To avoid highly specific selectors ID's are not allowed to apply SASS styling:
 
@@ -403,12 +435,35 @@ To avoid highly specific selectors ID's are not allowed to apply SASS styling:
 
 ```
 
+### ImportantRule
 
-## PropertySortOrder
+In order to avoid specificity problems using `!important` in SASS properties is not allowed.
+
+**Bad:**
+
+```scss
+
+.sui-Component {
+    background-color: $c-bg-light !important;
+}
+
+```
+
+**Good: Apply Class selector instead**
+
+```scss
+
+.sui-Component {
+    background-color: $c-bg-light;
+}
+
+```
+
+### PropertySortOrder
 
 Use alphabetical order in your declaration statements. If you are using Sublime Text select all the properties and press `F5` to automatic sorting. Note: No grouping or line spaces between property blocks are allowed.
 
-## Naming Convention
+### Naming Convention
 Based in [SUIT CSS](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md)
 
 Example:
