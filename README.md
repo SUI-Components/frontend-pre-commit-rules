@@ -31,8 +31,12 @@ If you are wondering if this set of rules if for you here's a brief description.
 
 #### Index
 * [Linter Installation](#linterinstallation)
-    - [SublimeLinter SASS](#sublimeLinter-sass)
-    - [Eslint for JS Linting](#eslint-for-js-linting)
+    - [Step 1 - Package Control](#step1-packagecontrol)
+    - [Step 2 - Install plugin](#step2-installplugin)
+    - [Step 3 - Ruby Gems dependencies](#step3-rubygemsdependencies)
+    - [Step 4 - Install SASS Linting plugin](#step4-installsasslintingplugin)
+    - [Step 5 - Install Eslint for JS Linting plugin](#step5-installeslintforjslintingplugin)
+
 
 * [SASS Syntax](#sass-syntax)
     - [BangFormat](#bangformat)
