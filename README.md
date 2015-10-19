@@ -32,7 +32,7 @@ If you are wondering if this set of rules if for you here's a brief description.
 ----
 
 #### Index
-* [Linter Installation](#linterinstallation)
+* [Linter Installation](#linter-installation)
     - [Step 1 - Package Control](#step-1---package-control)
     - [Step 2 - Install plugin](#step-2---install-plugin)
     - [Step 3 - Ruby Gems dependencies](#step-3---ruby-gems-dependencies)
@@ -464,6 +464,29 @@ In order to avoid specificity problems using `!important` in SASS properties is 
 }
 
 ```
+
+### ImportPath
+
+An imported partials SASS file paths cannot have preceding underscores `_` and `.scss` expensions declared in path.
+
+**Bad**
+```scss
+@import "foo/_bar.scss";
+@import "_bar.scss";
+@import "_bar";
+@import "bar.scss";
+```
+
+**Good**
+```scss
+@import "foo/bar";
+@import "bar";
+```
+
+### EditorConfig
+
+In order to optimize Github diffing tool we use the following
+
 
 ### PropertySortOrder
 
