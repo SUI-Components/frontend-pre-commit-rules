@@ -470,6 +470,7 @@ In order to avoid specificity problems using `!important` in SASS properties is 
 An imported partials SASS file paths cannot have preceding underscores `_` and `.scss` expensions declared in path.
 
 **Bad**
+
 ```scss
 @import "foo/_bar.scss";
 @import "_bar.scss";
@@ -478,6 +479,7 @@ An imported partials SASS file paths cannot have preceding underscores `_` and `
 ```
 
 **Good**
+
 ```scss
 @import "foo/bar";
 @import "bar";
@@ -520,11 +522,13 @@ If you are using **Sublime Text**:
 Don't write leading zeros for numeric values with a decimal point.
 
 **Bad: unnecessary leading zero**
+
 ```scss
 margin: 0.5em;
 ```
 
 **Good: no leading zero**
+
 ```scss
 margin: .5em;
 ```
@@ -534,6 +538,7 @@ margin: .5em;
 Reports when you define the same selector twice in a single sheet.
 
 **Bad**
+
 ```scss
 h1 {
   margin: 10px;
@@ -555,6 +560,7 @@ Functions, mixins, variables, and placeholders should be declared with all
 lowercase letters and hyphens instead of underscores.
 
 **Bad: uppercase characters**
+
 ```scss
 $myVar: 10px;
 
@@ -564,6 +570,7 @@ $myVar: 10px;
 ```
 
 **Good: all lowercase with hyphens**
+
 ```scss
 $my-var: 10px;
 
@@ -574,13 +581,14 @@ $my-var: 10px;
 
 ### NestingDepth
 
-The max nesting selectors is **4 levels**.
+The max nesting selectors in SASS files is: **4 levels**.
 
 ### PlaceholderInExtend
 
 Always use placeholder selectors in `@extend` to avoid generating more code than necessary.
 
 **Bad: extending a class**
+
 ```scss
 .fatal {
   @extend .error;
@@ -588,6 +596,7 @@ Always use placeholder selectors in `@extend` to avoid generating more code than
 ```
 
 **Good: extending a placeholder**
+
 ```scss
 .fatal {
   @extend %error;
@@ -620,12 +629,58 @@ Use alphabetical order in your declaration statements. If you are using Sublime 
     width: 100%;
 }
 
+```
 
+## PropertySpelling
 
-### Naming Convention
-Based in [SUIT CSS](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md)
+Reports when you use an unknown CSS property (ignoring vendor-prefixed
+properties).
 
-Example:
+```scss
+diplay: none; // "display" is spelled incorrectly
+```
+
+### SelectorDepth
+
+Max depth of selectors applicability is set to 3.
+
+**Bad: selectors with depths of 4**
+
+```scss
+.one .two .three > .four {
+  ...
+}
+
+.one .two {
+  .three > .four {
+    ...
+  }
+}
+```
+
+**Good: Max depth of 3**
+
+```scss
+.one .two .three {
+  ...
+}
+
+.one .two {
+  .three {
+    ...
+  }
+}
+```
+
+### SelectorFormat
+
+The selector format **naming convention** used here is based in [SUIT CSS](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md)
+
+It must match the following RegEx:
+`^(?:[a-zA-Z0-9]*)\-[A-Z]{1}[a-z][a-zA-Z0-9]*(?:\-[a-z][a-zA-Z0-9]*)?(?:\-\-[a-z][a-zA-Z0-9]*)?$`
+
+Perhaps you prefer to see an example:
+
 ```
 .pre-MyComponent {}
 .pre-MyComponent.is-animating {}
@@ -633,4 +688,5 @@ Example:
 
 .pre-MyComponent-element {}
 .pre-MyComponent-anotherElement {}
+
 ```
