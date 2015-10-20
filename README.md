@@ -483,11 +483,17 @@ An imported partials SASS file paths cannot have preceding underscores `_` and `
 @import "bar";
 ```
 
-### EditorConfig
+### Indentation
 
-Editorconfig ensures a consistent coding style no matter what editor or IDE you use. Consists of a hidden file named `.editorconfig` and a plugin that needs to be installed in your code editor
+Default basic indentation is set to the followind value:
 
-Also helps Github diffing tool to avoid incorrect file changes. The presets included here are:
+- Indentation 2 spaces.
+
+##### Use Editorconfig instead
+
+In the other hand, automatic **indentation** can be performed by Editorconfig to ensure a consistent coding style no matter what editor or IDE you use. Consists of a hidden file named `.editorconfig` and a plugin that needs to be installed in your code editor.
+
+Also helps Github diffing tool to avoid incorrect file changes. The presets included in Editorconfig are:
 
 - `[*]` - Applies the following rules to **all characters in files**.
 - `indent_style = space` - Use *soft tabs* for indentation.
@@ -509,10 +515,112 @@ If you are using **Sublime Text**:
 - Type `EditorConfig` .
 - Press `enter` to Install it.
 
+### LeadingZero
+
+Don't write leading zeros for numeric values with a decimal point.
+
+**Bad: unnecessary leading zero**
+```scss
+margin: 0.5em;
+```
+
+**Good: no leading zero**
+```scss
+margin: .5em;
+```
+
+### MergeableSelector
+
+Reports when you define the same selector twice in a single sheet.
+
+**Bad**
+```scss
+h1 {
+  margin: 10px;
+}
+
+.baz {
+  color: red;
+}
+
+// Second copy of h1 rule
+h1 {
+  text-transform: uppercase;
+}
+```
+
+### NameFormat
+
+Functions, mixins, variables, and placeholders should be declared with all
+lowercase letters and hyphens instead of underscores.
+
+**Bad: uppercase characters**
+```scss
+$myVar: 10px;
+
+@mixin myMixin() {
+  ...
+}
+```
+
+**Good: all lowercase with hyphens**
+```scss
+$my-var: 10px;
+
+@mixin my-mixin() {
+  ...
+}
+```
+
+### NestingDepth
+
+The max nesting selectors is **4 levels**.
+
+### PlaceholderInExtend
+
+Always use placeholder selectors in `@extend` to avoid generating more code than necessary.
+
+**Bad: extending a class**
+```scss
+.fatal {
+  @extend .error;
+}
+```
+
+**Good: extending a placeholder**
+```scss
+.fatal {
+  @extend %error;
+}
+```
 
 ### PropertySortOrder
 
 Use alphabetical order in your declaration statements. If you are using Sublime Text select all the properties and press `F5` to automatic sorting. Note: No grouping or line spaces between property blocks are allowed.
+
+**Bad: No alphabetically ordered properties**
+
+```scss
+
+.sui-Component {
+    width: 100%;
+    background-color: $c-bg-light;
+    margin: 0 auto;
+}
+
+```
+
+**Good: Alphabetically ordered properties**
+
+```scss
+
+.sui-Component {
+    background-color: $c-bg-light;
+    margin: 0 auto;
+    width: 100%;
+}
+
+
 
 ### Naming Convention
 Based in [SUIT CSS](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md)
