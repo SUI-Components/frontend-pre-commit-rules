@@ -12,18 +12,12 @@ In order to do so we decided to rely on [Eslint](http://eslint.org/), a great Ja
 If you are wondering if this set of rules if for you here's a brief description. Keep reading to get a detailed description.
 
 ####**SASS Linting won't let you:**
-- Leave empty declarations or duplicate properties.
-- Add comments
 - Add color values directly to a property. You must use **variables** instead.
 - Set short #hex values.
 - Use of `!important`
-- Nest properties beyond 4 levels.
-- Write a selector in a single line.
 - ...
 
 ####**in SASS linting you must:**
-- Leave a space after colon.
-- Leave an empty line between blocks.
 - Merge rules of same selector.
 - Set properties to `0` instead of `none`.
 - Match the selector format to the [Naming Convention](#naming-convention)
@@ -689,4 +683,370 @@ Perhaps you prefer to see an example:
 .pre-MyComponent-element {}
 .pre-MyComponent-anotherElement {}
 
+```
+
+### Shorthand
+
+Shortest shorthand for properties that support it are mandatory.
+
+**Bad: all 4 sides specified with same value**
+
+```scss
+margin: 1px 1px 1px 1px;
+```
+
+**Good: equivalent to specifying 1px for all sides**
+
+```scss
+margin: 1px;
+```
+
+### SingleLinePerProperty
+
+Properties within rule sets should each reside on their own line.
+
+**Bad**
+
+```scss
+p {
+  margin: 0; padding: 0;
+}
+```
+
+**Good**
+
+```scss
+p {
+  margin: 0;
+  padding: 0;
+}
+```
+
+### SingleLinePerSelector
+
+Split selectors onto separate lines after each comma, and have each individual
+selector occupy a single line.
+
+**Bad: comma-separated selectors not on their own lines**
+
+```scss
+.error p, p.explanation {
+  ...
+}
+```
+
+**Bad: descendent selector spread over multiple lines**
+
+```scss
+.error
+  p,
+  p.explanation {
+  ...
+}
+```
+
+**Good: each selector sequence is on its own individual line**
+
+```scss
+.error p,
+p.explanation {
+  ...
+}
+```
+
+### SpaceAfterComma
+
+Commas in lists should be followed by a space.
+
+**Bad: no space after commas**
+
+```scss
+@include box-shadow(0 2px 2px rgba(0,0,0,.2));
+color: rgba(0,0,0,.1);
+```
+
+**Good: commas followed by a space**
+
+```scss
+@include box-shadow(0 2px 2px rgba(0, 0, 0, .2));
+color: rgba(0, 0, 0, .1);
+```
+
+### SpaceAfterPropertyColon
+
+Properties should be formatted with a single space separating the colon from
+the property's value.
+
+**Bad: no space after colon**
+
+```scss
+margin:0;
+```
+
+**Bad: more than one space after colon**
+
+```scss
+margin:   0;
+```
+
+**Good: Just a single space after colon**
+
+```scss
+margin: 0;
+```
+
+### SpaceAfterPropertyName
+
+Properties should be formatted with no space between the name and the colon.
+
+**Bad: space before colon**
+
+```scss
+margin : 0;
+```
+
+**Good**
+
+```scss
+margin: 0;
+```
+
+### SpaceBeforeBrace
+
+Opening braces should be preceded by a single space.
+
+**Bad: no space before brace**
+
+```scss
+.sui-Button{
+  ...
+}
+```
+
+**Bad: more than one space before brace**
+
+```scss
+.sui-Button  {
+  ...
+}
+```
+
+**Good**
+
+```scss
+.sui-Button {
+  ...
+}
+```
+
+For **Single Line Blocks** extra spaces are allowed to better align code:
+
+```scss
+.sui-Arrow--up    { &:before { content: "\e030"; } }
+.sui-Arrow--down  { &:before { content: "\e031"; } }
+.sui-Arrow--left  { &:before { content: "\e032"; } }
+.sui-Arrow--right { &:before { content: "\e033"; } }
+```
+
+### SpaceBetweenParens
+
+Parentheses should not be padded with spaces.
+
+**Bad**
+
+```scss
+@include box-shadow( 0 2px 2px rgba( 0, 0, 0, .2 ) );
+color: rgba( 0, 0, 0, .1 );
+```
+
+**Good**
+
+```scss
+@include box-shadow(0 2px 2px rgba(0, 0, 0, .2));
+color: rgba(0, 0, 0, .1);
+```
+
+### StringQuotes
+
+String literals should be written with single quotes unless using double quotes
+would save on escape characters.
+
+The reason why we prefer single quotes is because are easier to type (no shift key needed) in most keyboards.
+
+**Bad: double quotes**
+
+```scss
+content: "hello";
+```
+
+**Good: single quotes**
+
+```scss
+content: 'hello';
+```
+
+**Good: double quotes prevent the need for escaping single quotes**
+
+```scss
+content: "'hello'";
+```
+
+### TrailingSemicolon
+
+All property values including; `@extend`, `@include`, and `@import` directives; and variable declarations should always end with a semicolon.
+Although in CSS you can omit the semicolon if the statement is the last one it might lead to inconsistencies.
+
+**Bad: no semicolon**
+
+```scss
+p {
+  color: #fff
+}
+```
+
+**Bad: space between value and semicolon**
+
+```scss
+p {
+  color: #fff ;
+}
+```
+
+**Good**
+
+```scss
+p {
+  color: #fff;
+}
+```
+
+### TrailingZero
+
+Don't write trailing zeros for numeric values with a decimal point in order to save additional bytes in generated CSS files.
+
+**Bad: unnecessary trailing zero**
+
+```scss
+margin: .500em;
+padding: 0.5em
+```
+
+**Good: no trailing zero**
+
+```scss
+margin: .5em;
+padding: .5em
+```
+
+### UnnecessaryMantissa
+
+Numeric values should not contain unnecessary fractional portions. Otherwhise SASS will take that value as an unnecesary floating point unit reducing performance and increasing memory usage.
+
+**Bad**
+
+```scss
+margin: 1.0em;
+```
+
+**Good**
+
+```scss
+margin: 1em;
+```
+
+### UnnecessaryParentReference
+
+Do not use parent selector references (`&`) when they would otherwise be
+unnecessary.
+
+**Bad**
+
+```scss
+.sui-Card {
+  & > .sui-Card-content {
+    ...
+  }
+}
+```
+
+**Good**
+
+```scss
+.sui-Card {
+  > .sui-Card-content {
+  }
+}
+```
+
+### UrlFormat
+
+URLs should not contain protocols or domain names.
+
+Including protocols or domains in URLs makes them brittle to change, and also
+unnecessarily increases the size of your CSS documents, reducing performance.
+
+**Bad: protocol and domain present**
+
+```scss
+background: url('https://example.com/assets/image.png');
+```
+
+**Good**
+
+```scss
+background: url('assets/image.png');
+```
+
+### UrlQuotes
+
+In order to be consistent with other SASS asset helpers URLs should always be enclosed within quotes. 
+
+**Bad: no enclosing quotes**
+
+```scss
+background: url(example.png);
+```
+
+**Good**
+
+```scss
+background: url('example.png');
+```
+
+### VendorPrefix
+
+Avoid vendor prefixes. Use `autoprefixer` tools. Don't write them yourself.
+
+**Bad: vendor prefixes**
+
+```scss
+@-webkit-keyframes anim {
+  0% { opacity: 0; }
+}
+
+```
+
+**Good**
+
+```scss
+// Autoprefix later in pre/post SASS processing...
+@keyframes anim {
+  0% { opacity: 0; }
+}
+```
+
+### ZeroUnit
+
+Because zero is zero regardless of the units of length, omit length units on zero values.
+
+**Bad: unnecessary units**
+
+```scss
+margin: 0px;
+```
+
+**Good**
+
+```scss
+margin: 0;
 ```
