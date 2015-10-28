@@ -73,7 +73,6 @@ If you are wondering if this set of rules if for you here's a brief description.
     - [StringQuotes](#stringquotes)
     - [TrailingSemicolon](#trailingsemicolon)
     - [TrailingZero](#trailingzero)
-    - [TrailingZero](#trailingzero)
     - [UnnecessaryMantissa](#unnecessarymantissa)
     - [UnnecessaryParentReference](#unnecessaryparentreference)
     - [UrlFormat](#urlformat)
@@ -999,7 +998,7 @@ background: url('assets/image.png');
 
 ### UrlQuotes
 
-In order to be consistent with other SASS asset helpers URLs should always be enclosed within quotes. 
+In order to be consistent with other SASS asset helpers URLs should always be enclosed within quotes.
 
 **Bad: no enclosing quotes**
 
