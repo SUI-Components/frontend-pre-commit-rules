@@ -114,7 +114,7 @@ SASS and SCSS-Lint are Ruby Gems. You need to meet the following requeriments:
     - [SingleLinePerProperty](#singlelineperproperty)
     - [SingleLinePerSelector](#singlelineperselector)
     - [SpaceAfterComma](#spaceaftercomma)
-    - [SpaceAfterPropertyColon](#spaceafterPpropertycolon)
+    - [SpaceAfterPropertyColon](#spaceafterpropertycolon)
     - [SpaceAfterPropertyName](#spaceafterpropertyname)
     - [SpaceBeforeBrace](#spacebeforebrace)
     - [SpaceBetweenParens](#spacebetweenparens)
@@ -133,11 +133,17 @@ SASS and SCSS-Lint are Ruby Gems. You need to meet the following requeriments:
 * [JS Syntax](#js-syntax)
     - [Environment](#environment)
 
+* Rules
+    - [no-alert](#no-alert)
+
 ----
 
 # JS Syntax
 The following lines are a summary of the JS syntax and rules you must follow in order to 
 
+# No Alert
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 
 ----
 
