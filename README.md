@@ -21,11 +21,13 @@ If you are wondering if this set of rules if for you here's a brief description.
 - Be free of alert(), console.log() and Debugger.
 - Avoid references to Prototype.
 - Use dot notation, camel case and single quotes.
+- ...
 
 ####** Your ReactJS code must**
 - Include just one component per file.
 - Always declare expected proptype.
 - Use JSX.
+- ...
 
 In addition, ES6 syntax is fully supported thanks to BabelJS. Feel free to use the right transpiling level for your project. Set the [right value](https://babeljs.io/docs/usage/babelrc/) in `.babelrc` config file.
 
@@ -39,6 +41,44 @@ In addition, ES6 syntax is fully supported thanks to BabelJS. Feel free to use t
     - [Step 4 - Install SASS Linting plugin](#step-4---install-sass-linting-plugin)
     - [Step 5 - Install Eslint for JS Linting plugin](#step-5---install-eslint-for-js-linting-plugin)
 
+----
+
+# Linter Installation
+This documentation is a step by step guide to add JS, SASS and React linter in **Sublime Text 3**. Feel free to use the code editor of your choice. Just make sure you can add *Eslint* and *SCSS-Lint* config files.
+
+### Step 1 - Package Control
+- Make sure you have Package Control installed in your copy of Sublime Text by pressing `cmd + Shift + p` and typing `Package Control: Install Package`.
+- If doesn't show up check out this page and install it first: [packagecontrol.io](https://packagecontrol.io/installation).
+
+### Step 2 - Install plugin
+- Open Package Control and install: `SublimeLinter` [Sublime Linter Plugin](http://www.sublimelinter.com/en/latest/).
+**Important Note: This plugin is no longer including linting files so you need to install them apart.**
+
+
+### Step 3 - Ruby Gems dependencies
+SASS and SCSS-Lint are Ruby Gems. You need to meet the following requeriments:
+
+- Ruby 1.9.3+ Installed: Check out [Ruby install page](https://www.ruby-lang.org/en/).
+- Sass 3.4.1+ Installed: Check out [SASS install page](http://sass-lang.com/install).
+- Files you wish to lint must be written in SCSS (not SASS) syntax.
+
+
+### Step 4 - Install SASS Linting plugin
+
+- Open Package control by typing: `cmd + shift + p` and then search for `install package`
+- Select `SublimeLinter-contrib-sass-lint`
+- Reopen Sublime Text if necessary.
+- SASS linting rules must be defined in a `.scss-lint.yml` file in the root directory.
+
+### Step 5 - Install Eslint for JS Linting plugin
+
+- Install the Eslint CLI from a global node package by typing `npm i -g eslint` in your terminal.
+- Open Package control by typing: `cmd + shift + p` and then search for `install package`
+- Select `SublimeLinter-contrib-eslint`
+- Reopen Sublime Text if necessary
+- Javascript linting rules must be defined in a `.eslintrc` file in the root directory.
+
+----
 
 * [SASS Syntax](#sass-syntax)
     - [BangFormat](#bangformat)
@@ -79,7 +119,6 @@ In addition, ES6 syntax is fully supported thanks to BabelJS. Feel free to use t
     - [StringQuotes](#stringquotes)
     - [TrailingSemicolon](#trailingsemicolon)
     - [TrailingZero](#trailingzero)
-    - [TrailingZero](#trailingzero)
     - [UnnecessaryMantissa](#unnecessarymantissa)
     - [UnnecessaryParentReference](#unnecessaryparentreference)
     - [UrlFormat](#urlformat)
@@ -89,40 +128,14 @@ In addition, ES6 syntax is fully supported thanks to BabelJS. Feel free to use t
 
 ----
 
-# Linter Installation
-This documentation is a step by step guide to add JS, SASS and React linter in **Sublime Text 3**. Feel free to use the code editor of your choice. Just make sure you can add *Eslint* and *SCSS-Lint* config files.
+* [JS Syntax](#js-syntax)
+    - [Environment](#environment)
 
-### Step 1 - Package Control
-- Make sure you have Package Control installed in your copy of Sublime Text by pressing `cmd + Shift + p` and typing `Package Control: Install Package`.
-- If doesn't show up check out this page and install it first: [packagecontrol.io](https://packagecontrol.io/installation).
+----
 
-### Step 2 - Install plugin
-- Open Package Control and install: `SublimeLinter` [Sublime Linter Plugin](http://www.sublimelinter.com/en/latest/).
-**Important Note: This plugin is no longer including linting files so you need to install them apart.**
+# JS Syntax
+The following lines are a summary of the JS syntax and rules you must follow in order to 
 
-
-### Step 3 - Ruby Gems dependencies
-SASS and SCSS-Lint are Ruby Gems. You need to meet the following requeriments:
-
-- Ruby 1.9.3+ Installed: Check out [Ruby install page](https://www.ruby-lang.org/en/).
-- Sass 3.4.1+ Installed: Check out [SASS install page](http://sass-lang.com/install).
-- Files you wish to lint must be written in SCSS (not SASS) syntax.
-
-
-### Step 4 - Install SASS Linting plugin
-
-- Open Package control by typing: `cmd + shift + p` and then search for `install package`
-- Select `SublimeLinter-contrib-sass-lint`
-- Reopen Sublime Text if necessary.
-- SASS linting rules must be defined in a `.scss-lint.yml` file in the root directory.
-
-### Step 5 - Install Eslint for JS Linting plugin
-
-- Install the Eslint CLI from a global node package by typing `npm i -g eslint` in your terminal.
-- Open Package control by typing: `cmd + shift + p` and then search for `install package`
-- Select `SublimeLinter-contrib-eslint`
-- Reopen Sublime Text if necessary
-- Javascript linting rules must be defined in a `.eslintrc` file in the root directory.
 
 ----
 
