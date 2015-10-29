@@ -480,7 +480,9 @@ In order to avoid specificity problems using `!important` in SASS properties is 
 
 ### ImportPath
 
-An imported partials SASS file paths cannot have preceding underscores `_` and `.scss` expensions declared in path.
+An imported partials SASS file paths cannot have preceding underscores `_` but it must contain a `.scss` expension declared in path in order to be compatible with the `node-sass v.3.4.1`.
+
+This update to `node-sass` is mandatory to execute this package under Node v.4.
 
 **Bad**
 
@@ -595,6 +597,41 @@ $my-var: 10px;
 ### NestingDepth
 
 The max nesting selectors in SASS files is: **4 levels**.
+
+**Bad: descendent name anidation add overspecificity**
+
+```scss
+
+.sui-Component {
+        …
+    &-header {
+    …
+    }
+    &-avatar {
+    …
+    }
+    &-bodyText {
+    …
+    }
+}
+```
+
+**Good: each descendent name is not anided with the parent**
+
+```scss
+.sui-Component {
+… 
+}
+.sui-Component-header {
+…
+}
+.sui-Component-avatar {
+…
+}
+.sui-Component-bodyText {
+…
+}
+```
 
 ### PlaceholderInExtend
 
@@ -1018,7 +1055,7 @@ background: url('assets/image.png');
 
 ### UrlQuotes
 
-In order to be consistent with other SASS asset helpers URLs should always be enclosed within quotes. 
+In order to be consistent with other SASS asset helpers URLs should always be enclosed within quotes.
 
 **Bad: no enclosing quotes**
 
