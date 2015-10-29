@@ -11,17 +11,23 @@ In order to do so we decided to rely on [Eslint](http://eslint.org/), a great Ja
 #### TL;DR
 If you are wondering if this set of rules if for you here's a brief description. Keep reading to get a detailed description.
 
-####**SASS Linting won't let you:**
-- Add color values directly to a property. You must use **variables** instead.
-- Set short #hex values.
-- Use of `!important`
-- ...
-
-####**in SASS linting you must:**
+####**Your SASS code must:**
 - Merge rules of same selector.
 - Set properties to `0` instead of `none`.
 - Match the selector format to the [Naming Convention](#naming-convention)
 - ...
+
+####**Your Javascript code must**
+- Be free of alert(), console.log() and Debugger.
+- Avoid references to Prototype.
+- Use dot notation, camel case and single quotes.
+
+####** Your ReactJS code must**
+- Include just one component per file.
+- Always declare expected proptype.
+- Use JSX.
+
+In addition, ES6 syntax is fully supported thanks to BabelJS. Feel free to use the right transpiling level for your project. Set the [right value](https://babeljs.io/docs/usage/babelrc/) in `.babelrc` config file.
 
 ----
 
