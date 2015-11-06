@@ -229,7 +229,7 @@ The following lines are a summary of the JS syntax and rules you must follow in 
 alert("here!");
 ```
 
-### No array constructor
+### No Array Constructor
 **Error** > Use of the Array constructor to construct a new array is generally discouraged in favour of array literal notation because of the single-argument pitfall and because the Array global may be redefined.
 
 ```javascript
