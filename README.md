@@ -216,6 +216,7 @@ SASS and SCSS-Lint are Ruby Gems. You need to meet the following requeriments:
     - [react/react-in-jsx-scope](#react/react-in-jsx-scope)
     - [react/self-closing-comp](#react/self-closing-comp)
     - [react/wrap-multilines](#react/wrap-multilines)
+
 ----
 
 # JS Syntax
@@ -223,6 +224,11 @@ The following lines are a summary of the JS syntax and rules you must follow in 
 
 ### No Alert
 **Error** > Alert is often used while debugging code, which should be removed before deployment to production.,
+
+```javascript
+alert("here!");
+```
+
 
 ----
 
