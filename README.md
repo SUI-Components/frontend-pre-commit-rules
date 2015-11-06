@@ -23,7 +23,7 @@ If you are wondering if this set of rules if for you here's a brief description.
 - Use dot notation, camel case and single quotes.
 - ...
 
-####** Your ReactJS code must**
+####**Your ReactJS code must**
 - Include just one component per file.
 - Always declare expected proptype.
 - Use JSX.
@@ -133,17 +133,96 @@ SASS and SCSS-Lint are Ruby Gems. You need to meet the following requeriments:
 * [JS Syntax](#js-syntax)
     - [Environment](#environment)
 
-* Rules
+* JS Linting Rules
     - [no-alert](#no-alert)
+    - [no-array-constructor](#no-array-constructor)
+    - [no-caller](#no-caller)
+    - [no-bitwise](#no-bitwise)
+    - [no-catch-shadow](#no-catch-shadow)
+    - [no-console](#no-console)
+    - [no-control-regex](#no-control-regex)
+    - [no-debugger](#no-debugger)
+    - [no-div-regex](#no-div-regex)
+    - [no-dupe-keys](#no-dupe-keys)
+    - [no-else-return](#no-else-return)
+    - [no-empty](#no-empty)
+    - [no-empty-character-class](#no-empty-character-class)
+    - [no-eq-null](#no-eq-null)
+    - [no-eval](#no-eval)
+    - [no-ex-assign](#no-ex-assign)
+    - [no-func-assign](#no-func-assign)
+    - [no-floating-decimal](#no-floating-decimal)
+    - [no-implied-eval](#no-implied-eval)
+    - [no-with](#no-with)
+    - [no-fallthrough](#no-fallthrough)
+    - [no-unreachable](#no-unreachable)
+    - [no-undef](#no-undef)
+    - [no-undef-init](#no-undef-init)
+    - [no-underscore-dangle](#no-underscore-dangle)
+    - [no-unused-expressions](#no-unused-expressions)
+    - [no-octal](#no-octal)
+    - [no-octal-escape](#no-octal-escape)
+    - [no-multi-str](#no-multi-str)
+    - [no-new-wrappers](#no-new-wrappers)
+    - [no-new-object](#no-new-object)
+    - [no-unused-vars](#no-unused-vars)
+    - [no-script-url](#no-script-url)
+    - [no-proto](#no-proto)
+    - [no-redeclare](#no-redeclare)
+    - [no-regex-spaces](#no-regex-spaces)
+    - [no-extra-semi](#no-extra-semi)
+    - [no-irregular-whitespace](#no-irregular-whitespace)
+    - [no-multi-spaces](#no-multi-spaces)
+    - [no-trailing-spaces](#no-trailing-spaces)
+    - [no-use-before-define](#no-use-before-define)
+    - [break-style](#break-style)
+    - [block-scoped-var](#block-scoped-var)
+    - [camelcase](#camelcase)
+    - [comma-dangle](#comma-dangle)
+    - [curly](#curly)
+    - [dot-notation](#dot-notation)
+    - [eqeqeq](#eqeqeq)
+    - [guard-for-in](#guard-for-in)
+    - [key-spacing](#key-spacing)
+    - [max-depth](#max-depth)
+    - [new-cap](#new-cap)
+    - [new-parens](#new-parens)
+    - [quotes](#quotes)
+    - [quote-props](#quote-props)
+    - [radix](#radix)
+    - [semi](#semi)
+    - [space-infix-ops](#space-infix-ops)
+    - [strict](#strict)
+    - [use-isnan](#use-isnan)
+    - [valid-typeof](#valid-typeof)
+    - [wrap-iife](#wrap-iife)
+    - [wrap-regex](#wrap-regex)
 
+----
+
+* [JSX Syntax](#jsx-syntax)
+    - [ReactJS](#reactjs)
+
+* ReactJS Linting Rules
+    - [react/display-name](#react/display-name)
+    - [react/jsx-quotes](#react/jsx-quotes)
+    - [react/jsx-no-undef](#react/jsx-no-undef)
+    - [react/jsx-uses-react](#react/jsx-uses-react)
+    - [react/jsx-uses-vars](#react/jsx-uses-vars)
+    - [react/no-did-mount-set-state](#react/no-did-mount-set-state)
+    - [react/no-did-update-set-state](#react/no-did-update-set-state)
+    - [react/no-multi-comp](#react/no-multi-comp)
+    - [react/prop-types](#react/prop-types)
+    - [react/react-in-jsx-scope](#react/react-in-jsx-scope)
+    - [react/self-closing-comp](#react/self-closing-comp)
+    - [react/wrap-multilines](#react/wrap-multilines)
 ----
 
 # JS Syntax
 The following lines are a summary of the JS syntax and rules you must follow in order to 
 
-# No Alert
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+### No Alert
+**Error** > Alert is often used while debugging code, which should be removed before deployment to production.,
 
 ----
 
