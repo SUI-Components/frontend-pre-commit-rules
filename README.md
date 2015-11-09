@@ -1237,3 +1237,40 @@ var x = y > z;
 var x = y < z;
 x += y;
 ```
+
+### No Catch Shadow
+**Error** > Disallow Shadowing of Variables Inside of catch. In IE 8 and earlier, the catch clause parameter can overwrite the value of a variable in the outer scope, if that variable has the same name as the catch clause parameter.
+
+```javascript
+var err = 'x';
+
+try {
+    throw "problem";
+} catch (err) {  /*error Value of 'err' may be overwritten in IE 8 and earlier.*/
+    
+    [...]
+}
+```
+
+### No Console
+**Error** > In JavaScript that is designed to be executed in the browser, it's considered a best practice to avoid using methods on console. Such messages are considered to be for debugging purposes and therefore not suitable to ship to the client.
+
+```javascript
+console.log("Hello world!");
+console.error("Something bad happened.");
+```
+
+### No Control Regex
+**Error** > Control characters are special, invisible characters in the ASCII range 0-31. These characters are rarely used in JavaScript strings so a regular expression containing these characters is most likely a mistake.
+
+```javascript
+var pattern1 = /\\x1f/;
+var pattern2 = new RegExp("\x1f");
+```
+
+### No Debugger
+**Error** > The debugger statement is used to tell the executing JavaScript environment to stop execution and start up a debugger at the current point in the code. This has fallen out of favor as a good practice with the advent of modern debugging and development tools.
+
+```javascript
+debugger;
+```
