@@ -131,9 +131,6 @@ SASS and SCSS-Lint are Ruby Gems. You need to meet the following requeriments:
 ----
 
 * [JS Syntax](#js-syntax)
-    - [Environment](#environment)
-
-* JS Linting Rules
     - [no-alert](#no-alert)
     - [no-array-constructor](#no-array-constructor)
     - [no-caller](#no-caller)
@@ -216,60 +213,6 @@ SASS and SCSS-Lint are Ruby Gems. You need to meet the following requeriments:
     - [react/react-in-jsx-scope](#react/react-in-jsx-scope)
     - [react/self-closing-comp](#react/self-closing-comp)
     - [react/wrap-multilines](#react/wrap-multilines)
-
-----
-
-# JS Syntax
-The following lines are a summary of the JS syntax and rules you must follow in order to be able to commit your changes. Every rule has its own level of acceptance:
-
-- **Allowed** > You can use whatever is specified in this rule.
-- **Warning** > If you don't follow this rule you'll get a warning alert in console.
-- **Error** > You are not allowed to omit this rule.
-
-### No Alert
-**Error** > Alert is often used while debugging code, which should be removed before deployment to production.,
-
-```javascript
-alert("here!");
-```
-
-### No Array Constructor
-**Error** > Use of the Array constructor to construct a new array is generally discouraged in favour of array literal notation because of the single-argument pitfall and because the Array global may be redefined.
-
-```javascript
-new Array(0, 1, 2)
-```
-
-### No Caller
-**Error** > This rule is aimed at discouraging the use of deprecated and sub-optimal code, but disallowing the use of `arguments.caller` and `arguments.callee`.
-
-You are not allow to do:
-
-```javascript
-function whoCalled() {
-   if (arguments.caller == null)
-      console.log('I was called from the global scope.');
-   else
-      console.log(arguments.caller + ' called me!');
-}
-```
-### No Bitwise
-**Allowed** > This rule is aimed at catching typos that end up as bitwise operators, but are meant to be the much more common `&&`, `||`, `<`, `>` operators. As Allowed rule, you must be carefull using them:
-
-```javascript
-// Wrong bitwise operator format:
-var x = y | z;
-var x = y & z;
-var x = y ^ z;
-var x = y ~ z;
-
-// You should use this format instead:
-var x = y || z;
-var x = y && z;
-var x = y > z;
-var x = y < z;
-x += y;
-```
 
 ----
 
@@ -1239,4 +1182,58 @@ margin: 0px;
 
 ```scss
 margin: 0;
+```
+
+----
+
+# JS Syntax
+The following lines are a summary of the JS syntax and rules you must follow in order to be able to commit your changes. Every rule has its own level of acceptance:
+
+- **Allowed** > You can use whatever is specified in this rule.
+- **Warning** > If you don't follow this rule you'll get a warning alert in console.
+- **Error** > You are not allowed to omit this rule.
+
+### No Alert
+**Error** > Alert is often used while debugging code, which should be removed before deployment to production.,
+
+```javascript
+alert("here!");
+```
+
+### No Array Constructor
+**Error** > Use of the Array constructor to construct a new array is generally discouraged in favour of array literal notation because of the single-argument pitfall and because the Array global may be redefined.
+
+```javascript
+new Array(0, 1, 2)
+```
+
+### No Caller
+**Error** > This rule is aimed at discouraging the use of deprecated and sub-optimal code, but disallowing the use of `arguments.caller` and `arguments.callee`.
+
+You are not allow to do:
+
+```javascript
+function whoCalled() {
+   if (arguments.caller == null)
+      console.log('I was called from the global scope.');
+   else
+      console.log(arguments.caller + ' called me!');
+}
+```
+### No Bitwise
+**Allowed** > This rule is aimed at catching typos that end up as bitwise operators, but are meant to be the much more common `&&`, `||`, `<`, `>` operators. As Allowed rule, you must be carefull using them:
+
+```javascript
+// Wrong bitwise operator format:
+var x = y | z;
+var x = y & z;
+var x = y ^ z;
+var x = y ~ z;
+
+// You should use this format instead:
+var x = y || z;
+var x = y && z;
+var x = y > z;
+var x = y < z;
+x += y;
 ```
