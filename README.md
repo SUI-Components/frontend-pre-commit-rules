@@ -14,7 +14,7 @@ If you are wondering if this set of rules if for you here's a brief description.
 ####**Your SASS code must:**
 - Merge rules of same selector.
 - Set properties to `0` instead of `none`.
-- Match the selector format to the [Naming Convention](#naming-convention)
+- Match the selector format set in the [Naming Convention](#naming-convention)
 - ...
 
 ####**Your Javascript code must**
@@ -28,7 +28,6 @@ If you are wondering if this set of rules if for you here's a brief description.
 - Always declare expected proptype.
 - Use JSX.
 - ...
-
 
 
 In addition, ES6 syntax is fully supported thanks to BabelJS. Feel free to use the right transpiling level for your project. Set the [right value](https://babeljs.io/docs/usage/babelrc/) in `.babelrc` config file.
@@ -62,12 +61,19 @@ SASS and SCSS-Lint are Ruby Gems. You need to meet the following requeriments:
 
 - Ruby 1.9.3+ Installed: Check out [Ruby install page](https://www.ruby-lang.org/en/).
 - Sass 3.4.1+ Installed: Check out [SASS install page](http://sass-lang.com/install).
-- Files you wish to lint must be written in SCSS (not SASS) syntax.
+- Install `scss_lint` Gem:
+```
+gem install scss-lint
+```
 
+> **Note about Ruby Gems dependencies:** <br />
+> The reason why we don't use Node `SASS-LINT` instead is the lack of support to *SelectorFormat* rule among others. Feel free to fork this repo and convert SCSS-LINT.YML file into `SASS-LINT format to get rid of Ruby dependency.
+
+- Files you wish to lint must be written in SCSS (not SASS) syntax.
 
 ### Step 4 - Install SASS Linting plugin
 
-- Open Package control by typing: `cmd + shift + p` and then search for `install package`
+- Open Package control in Sublime Text by typing: `cmd + shift + p` and then search for `install package`
 - Select `SublimeLinter-contrib-sass-lint`
 - Reopen Sublime Text if necessary.
 - SASS linting rules must be defined in a `.scss-lint.yml` file in the root directory.
