@@ -63,11 +63,11 @@ SASS and SCSS-Lint are Ruby Gems. You need to meet the following requeriments:
 - Sass 3.4.1+ Installed: Check out [SASS install page](http://sass-lang.com/install).
 - Install `scss_lint` Gem:
 ```
-gem install scss-lint
+gem install scss_lint
 ```
 
 > **Note about Ruby Gems dependencies:** <br />
-> The reason why we don't use Node `SASS-LINT` instead is the lack of support to *SelectorFormat* rule among others. Feel free to fork this repo and convert SCSS-LINT.YML file into `SASS-LINT format to get rid of Ruby dependency.
+> The reason why we don't use Node `SASS-LINT` instead is the lack of support to *SelectorFormat* rule among others. Feel free to fork this repo and [convert](http://sasstools.github.io/make-sass-lint-config/) SCSS-LINT.YML file into SASS-LINT format to get rid of Ruby dependency.
 
 - Files you wish to lint must be written in SCSS (not SASS) syntax.
 
