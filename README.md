@@ -1280,3 +1280,244 @@ var pattern2 = new RegExp("\x1f");
 ```javascript
 debugger;
 ```
+
+### No Div Regex
+**Error** > Disallow Regexs That Look Like Division. This is used to disambiguate the division operator to not confuse users.
+
+The following patterns are considered problems:
+
+```javascript
+function bar() { return /=foo/; } /*error A regular expression literal can be confused with '/='.*/
+```
+
+### No Dupe Keys
+**Error** > Creating objects with duplicate keys in objects can cause unexpected behavior in your application. The `no-dupe-keys` rule flags the use of duplicate keys in object literals.
+
+The following patterns are considered problems:
+
+```javascript
+var foo = {
+    bar: "baz",
+    bar: "qux"
+};
+```
+
+### No Else Return
+**Error** > If an if block contains a return statement, the else block becomes unnecessary. Its contents can be placed outside of the block.
+
+```javascript
+function foo() {
+    if (x) {
+        return y;
+    } else {
+        return z;
+    }
+}
+```
+
+### No Empty
+**Error** > Empty statements usually occur due to refactoring that wasn't completed, such as:
+
+```javascript
+if (foo) {
+}
+```
+
+The following pattern is **not** considered a problem:
+
+```javascript
+if (foo) {
+  // left empty on purpose
+}
+```
+### No Empty Character Class
+**Error** > Empty character classes in regular expressions do not match anything and can result in code that may not work as intended.
+
+This rule is aimed at highlighting possible typos and unexpected behavior in regular expressions which may arise from the use of empty character classes.
+
+The following pattern is considered a problem:
+
+```javascript
+var foo = /^abc[]/;
+/^abc[]/.test(foo);
+```
+
+### No Eq Null
+**Error** > Comparing to `null` without a type-checking operator (`==` or `!=`), can have unintended results as the comparison will evaluate to `true` when comparing to not just a `null`, but also an `undefined` value.
+
+The `no-eq-null` rule aims reduce potential bug and unwanted behavior by ensuring that comparisons to `null` only match `null`, and not also `undefined`. As such it will flag comparisons to `null` when using `==` and `!=`.
+
+The following patterns are considered problems:
+
+```javascript
+if (foo == null) {     /*error Use ‘===’ to compare with ‘null’.*/
+  bar();
+}
+
+while (qux != null) {  /*error Use ‘===’ to compare with ‘null’.*/
+  baz();
+}
+```
+
+### No Eval
+**Error** > JavaScript's `eval()` function is potentially dangerous and is often misused. Using `eval()` on untrusted code can open a program up to several different injection attacks. The use of `eval()` in most contexts can be substituted for a better, alternative approach to a problem.
+
+```javascript
+var obj = { x: "foo" },
+    key = "x",
+    value = eval("obj." + key);
+```
+
+### No Ex Assign
+**Error** > Disallow Assignment of the Exception Parameter. When an error is caught using a `catch` block, it's possible to accidentally (or purposely) overwrite the reference to the error.
+
+This rule's purpose is to enforce convention. Assigning a value to the exception parameter wipes out all the valuable data contained therein and thus should be avoided. Since there is no `arguments` object to offer alternative access to this data, assignment of the parameter is absolutely destructive.
+
+The following pattern is considered a problem:
+
+```javascript
+try {
+    // code
+} catch (e) {
+    e = 10;   /*error Do not assign to the exception parameter.*/
+}
+```
+
+### No Func Assign
+**Error** > JavaScript functions can be written as a **FunctionDeclaration** `function foo() { ... }` or as a **FunctionExpression** `var foo = function() { ... };`. While a JavaScript interpreter might tolerate it, overwriting/reassigning a function written as a **FunctionDeclaration** is often indicative of a mistake or issue.
+
+This rule is aimed at flagging probable mistakes and issues in the form of overwriting a function that was written as a FunctionDeclaration. As such it will warn when this issue is encountered.
+
+The following patterns are considered problems:
+
+```javascript
+function foo() {}
+foo = bar;        /*error 'foo' is a function.*/
+
+function foo() {
+    foo = bar;    /*error 'foo' is a function.*/
+}
+```
+
+### No Floating Decimal
+**Error** > Float values in JavaScript contain a decimal point, and there is no requirement that the decimal point be preceded or followed by a number. For example, the following are all valid JavaScript numbers:
+
+```
+var num = .5;
+var num = 2.;
+var num = -.7;
+```
+Although not a syntax error, this format for numbers can make it difficult to distinguish between true decimal numbers and the dot operator. For this reason, some recommend that you should always include a number before and after a decimal point to make it clear the intent is to create a decimal number.
+
+This rule is aimed at eliminating floating decimal points and will warn whenever a numeric value has a decimal point but is missing a number either before or after it.
+
+The following patterns are considered problems:
+
+```javascript
+var num = .5;  /*error A leading decimal point can be confused with a dot.*/
+var num = 2.;  /*error A trailing decimal point can be confused with a dot.*/
+var num = -.7; /*error A leading decimal point can be confused with a dot.*/
+```
+
+### No Implied Eval
+**Error** > It's considered a good practice to avoid using `eval()` in JavaScript. There are security and performance implications involved with doing so, which is why many linters (including ESLint) recommend disallowing `eval()`. However, there are some other ways to pass a string and have it interpreted as JavaScript code that have similar concerns.
+
+The first is using `setTimeout()`, `setInterval()` or `execScript()` (Internet Explorer only), both of which can accept a string of JavaScript code as their first argument. For example:
+
+```javascript
+setTimeout("alert('Hi!');", 100);
+```
+
+This is considered an implied `eval()` because a string of JavaScript code is passed in to be interpreted. The same can be done with `setInterval()` and `execScript()`. Both interpret the JavaScript code in the global scope. For both `setTimeout()` and `setInterval()`, the first argument can also be a function, and that is considered safer and is more performant:
+
+```javascript
+setTimeout(function() {
+    alert("Hi!");
+}, 100);
+```
+The best practice is to always use a function for the first argument of `setTimeout()` and `setInterval()` (and avoid `execScript()`).
+
+
+### No With
+**Error** > The `with` statement is potentially problematic because it adds members of an object to the current scope, making it impossible to tell what a variable inside the block actually refers to. Additionally, the `with` statement cannot be used in `strict mode`.
+
+This rule is aimed at eliminating `with` statements.
+The following patterns is considered a problem:
+
+```javascript
+with (foo) { /*error Unexpected use of 'with' statement.*/
+    // ...
+}
+```
+
+### No Fallthrough
+**Error** > The `switch` statement in JavaScript is one of the more error-prone constructs of the language thanks in part to the ability to "fall through" from one case to the next. For example:
+
+This rule is aimed at eliminating **unintentional fallthrough** of one case to the other. As such, it flags and fallthrough scenarios that are not marked by a comment.
+
+The following pattern is considered a problem:
+
+```javascript
+switch(foo) {
+    case 1:            /*error Expected a "break" statement before "case".*/
+        doSomething();
+
+    case 2:
+        doSomething();
+}
+```
+The following pattern is **not** considered a problem:
+
+```javascript
+switch(foo) {
+    case 1:
+        doSomething();
+        break;
+
+    case 2:
+        doSomething();
+}
+```
+
+### No Unreachable
+**Error** > A number of statements unconditionally exit a block of code. Any statements after that will not be executed and may be an error. The presence of unreachable code is usually a sign of a coding error.
+
+```javascript
+function fn() {
+    x = 1;
+    return x;
+    x = 3; // this will never execute
+}
+```
+
+This rule is aimed at detecting unreachable code. It produces an error when a statements in a block exist after a `return`, `throw`, `break`, or `continue` statement. The rule checks inside the program root, block statements, and `switch` cases.
+
+The following are considered problems:
+
+```javascript
+function foo() {
+    return true;
+    console.log("done");      /*error Found unexpected statement after a return.*/
+}
+
+function bar() {
+    throw new Error("Oops!");
+    console.log("done");      /*error Found unexpected statement after a throw.*/
+}
+```
+
+### No Undef
+**Error** > Any reference to an undeclared variable causes a warning, unless the variable is explicitly mentioned in a `/*global ...*/` comment. This rule can help you locate potential ReferenceErrors resulting from misspellings of variable and parameter names, or accidental implicit globals (for example, from forgetting the `var` keyword in a `for` loop initializer).
+
+```javascript
+var a = someFunction();  /*error "someFunction" is not defined.*/
+b = 10;                  /*error "b" is not defined.*/
+```
+
+Explicitly checking an undefined identifier with typeof causes no warning:
+
+```javascript
+if (typeof UndefinedIdentifier === "undefined") {
+    // do something ...
+}
+```
