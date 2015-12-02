@@ -1402,7 +1402,7 @@ function foo() {
 ### No Floating Decimal
 **Error** > Float values in JavaScript contain a decimal point, and there is no requirement that the decimal point be preceded or followed by a number. For example, the following are all valid JavaScript numbers:
 
-```
+```javascript
 var num = .5;
 var num = 2.;
 var num = -.7;
@@ -1521,3 +1521,77 @@ if (typeof UndefinedIdentifier === "undefined") {
     // do something ...
 }
 ```
+
+### No Undef Init
+**Error** > In JavaScript, a variable that is declared and not initialized to any value automatically gets the value of `undefined`. For example:
+
+```javascript
+var foo;
+console.log(foo === undefined);     // true
+```
+It's therefore unnecessary to initialize a variable to undefined, such as:
+
+```javascript
+var foo = undefined;
+```
+
+### No Underscore Dangle
+**Allowed** > Dangling underscores are underscores at either the beginning or end of an identifier, such as:
+
+```javascript
+var _foo;
+```
+Using a single underscore prefix has become popular as a way to indicate "private" members of objects.
+
+Whether or not you choose to allow dangling underscores in identifiers is purely a convention and has no effect on performance, readability, or complexity. It's purely a preference.
+
+### No Unused Expressions
+**Error** > Unused expressions are those expressions that evaluate to a value but are never used. For example:
+
+```javascript
+"Hello world";
+```
+By default the following patterns are considered problems:
+
+```javascript
+0         /*error Expected an assignment or function call and instead saw an expression.*/
+
+if(0) 0   /*error Expected an assignment or function call and instead saw an expression.*/
+```
+
+The following patterns are **not** considered problems by default:
+
+```javascript
+a = 0
+new C
+delete a.b
+```
+
+### No Octal
+**Error** > Octal literals are numerals that begin with a leading zero, such as:
+
+```javascript
+var num = 071;      // 57
+```
+The leading zero to identify an octal literal has been a source of confusion and error in JavaScript. ECMAScript 5 deprecates the use of octal numeric literals in JavaScript and octal literals cause syntax errors in strict mode.
+
+It's therefore recommended to avoid using octal literals in JavaScript code.
+
+### No Octal Escape
+**Error** > As of version 5 of the ECMAScript specification, octal escape sequences are a deprecated feature and should not be used. It is recommended that Unicode escapes be used instead.
+
+The rule is aimed at preventing the use of a deprecated JavaScript feature, the use of octal escape sequences. As such it will warn whenever an octal escape sequence is found in a string literal.
+
+The following pattern in considered a problem:
+
+```javascript
+var foo = "Copyright \251"; /*error Don't use octal: '\251'.
+```
+
+The following pattern are **not** considered problems:
+
+```javascript
+var foo = "Copyright \u00A9";   // unicode
+var foo = "Copyright \xA9";     // hexadecimal
+```
+
