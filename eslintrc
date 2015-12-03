@@ -71,7 +71,7 @@
       }],
       "no-use-before-define": [2, "nofunc"],
 
-      "break-style": 0,
+      "linebreak-style": 0,
       "block-scoped-var": 0,
       "camelcase": 2,
       "comma-dangle": 2,

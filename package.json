@@ -36,13 +36,14 @@
   ],
   "keywords": [
     "ReactJS",
-    "ReactJS",
+    "JSX",
     "Javascript",
     "JS",
+    "ES6",
     "CSS",
     "SASS",
     "lint",
-    "Linting",
+    "linting",
     "precommit",
     "rules",
     "schibstedspain"

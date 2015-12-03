@@ -1669,3 +1669,255 @@ The following patterns are not considered problems:
 var myObject = new CustomObject();
 var myObject = {};
 ```
+
+### No Unused Vars
+**Warning** > Variables that are declared and not used anywhere in the code are most likely an error due to incomplete refactoring. Such variables take up space in the code and can lead to confusion by readers.
+
+This rule is aimed at eliminating unused variables, functions and variables in parameters of functions, as such, warns when one is found.
+
+A variable is considered to be used when it:
+
+- Represents a function that is called `(doSomething())`
+- Is read `(var y = x)`
+- Is passed into a function as an argument `(doSomething(x))`
+- A variable is not considered read if it is only ever assigned to `(var x = 5)` or declared.
+
+The following pattern are considered problems:
+
+```javascript
+var y = 10;   /*error "y" is defined but never used*/
+y = 5;
+```
+
+### No Script Url
+**Error** > Using `javascript:` URLs is considered by some as a form of `eval`. Code passed in `javascript:` URLs has to be parsed and evaluated by the browser in the same way that eval is processed.
+
+The following pattern in considered a problem:
+
+```javascript
+location.href = "javascript:void(0)"; /*error Script URL is a form of eval.*/
+```
+
+### No Proto
+**Error** > `__proto__` property has been deprecated as of ECMAScript 3.1 and shouldn't be used in the code. Use `getPrototypeOf` method instead.
+
+When an object is created `__proto__` is set to the original prototype property of the object’s constructor function. `getPrototypeOf` is the preferred method of getting *the prototype*.
+
+The following patterns are considered problems:
+
+```javascript
+var a = obj.__proto__;    /*error The '__proto__' property is deprecated.*/
+var a = obj["__proto__"]; /*error The '__proto__' property is deprecated.*/
+```
+
+### No Redeclare
+**Error* > In JavaScript, it's possible to redeclare the same variable name using `var`. This can lead to confusion as to where the variable is actually declared and initialized.
+
+This rule is aimed at eliminating variables that have multiple declarations in the same scope.
+
+The following pattern in considered a problem:
+
+```javascript
+var a = 3;
+var a = 10; /*error "a" is already defined*/
+```
+
+### No Regex Spaces
+**Error** > Regular expressions can be very complex and difficult to understand, which is why it's important to keep them as simple as possible in order to avoid mistakes. One of the more error-prone things you can do with a regular expression is to use more than one space, such as:
+
+```javascript
+var re = /foo   bar/;
+```
+
+In this regular expression, it's very hard to tell how many spaces are intended to be matched. It's better to use only one space and then specify how many spaces are expected, such as:
+
+```javascript
+var re = /foo {3}bar/;
+```
+
+Now it is very clear that three spaces are expected to be matched.
+
+
+### No Extra Semi
+**Warning** > JavaScript will more or less let you put semicolons after any statement without complaining. Typos and misunderstandings about where semicolons are required can lead to extra semicolons that are unnecessary.
+
+The following pattern in considered a problem:
+
+```javascript
+var x = 5;;     /*error Unnecessary semicolon.*/
+
+function foo() {
+    // code
+};              /*error Unnecessary semicolon.*/
+```
+
+### No Irregular Whitespace
+**Error** > Invalid or irregular whitespace causes issues with ECMAScript 5 parsers and also makes code harder to debug in a similar nature to mixed tabs and spaces.
+
+Various whitespace characters can be inputted by programmers by mistake for example from copying or keyboard shortcuts. Pressing Alt + Space on OS X adds in a non breaking space character for example.
+
+Known issues these spaces cause:
+
+- Zero Width Space
+-- Is NOT considered a separator for tokens and is often parsed as an Unexpected token ILLEGAL
+-- Is NOT shown in modern browsers making code repository software expected to resolve the visualisation
+- Line Separator
+-- Is NOT a valid character within JSON which would cause parse errors
+
+With this rule enabled the following characters will cause warnings outside of strings:
+
+```
+\u000B - Line Tabulation (\v) - <VT>
+\u000C - Form Feed (\f) - <FF>
+\u00A0 - No-Break Space - <NBSP>
+\u0085 - Next Line
+\u1680 - Ogham Space Mark
+\u180E - Mongolian Vowel Separator - <MVS>
+\ufeff - Zero Width No-Break Space - <BOM>
+\u2000 - En Quad
+\u2001 - Em Quad
+\u2002 - En Space - <ENSP>
+\u2003 - Em Space - <EMSP>
+\u2004 - Tree-Per-Em
+\u2005 - Four-Per-Em
+\u2006 - Six-Per-Em
+\u2007 - Figure Space
+\u2008 - Punctuation Space - <PUNCSP>
+\u2009 - Thin Space
+\u200A - Hair Space
+\u200B - Zero Width Space - <ZWSP>
+\u2028 - Line Separator
+\u2029 - Paragraph Separator
+\u202F - Narrow No-Break Space
+\u205f - Medium Mathematical Space
+\u3000 - Ideographic Space
+```
+
+### No Multi Spaces
+**Error** > Multiple spaces in a row that are not used for indentation are typically mistakes. For example:
+
+```javascript
+if(foo  === "bar") {}
+```
+
+It's hard to tell, but there are two spaces between `foo` and `===`. 
+Multiple spaces such as this are generally frowned upon in favor of single spaces:
+
+```javascript
+if(foo === "bar") {}
+```
+
+### No Trailing Spaces
+**Error** > Sometimes in the course of editing files, you can end up with extra whitespace at the end of lines. These whitespace differences can be picked up by source control systems and flagged as `diffs`, causing frustration for developers. While this extra whitespace causes no functional issues, many code conventions require that trailing spaces be removed before checkin.
+
+The following patterns are considered problems:
+
+```javascript
+var foo = 0;//•••••  /*error Trailing spaces not allowed.*/
+var baz = 5;//••     /*error Trailing spaces not allowed.*/
+```
+
+In this set of linting rules, the option `skipBlankLines` is set to true. It will not flag any lines that are made up purely of whitespace. In short, if a line is zero-length after being trimmed of whitespace, then the rule will not flag that line when skipBlankLines is enabled.
+
+The following patterns are not considered problems:
+
+```javascript
+var foo = 0;
+//••••
+var baz = 5;
+```
+
+### No Use Before Define
+**Error** > In JavaScript, prior to ES6, variable and function declarations are hoisted to the top of a scope, so it's possible to use identifiers before their formal declarations in code. This can be confusing and some believe it is best to always declare variables and functions before using them.
+
+In ES6, block-level bindings (let and const) introduce a "temporal dead zone" where a `ReferenceError` will be thrown with any attempt to access the variable before its declaration.
+
+The following pattern is considered a problem:
+
+```javascript
+var a;
+a = 10;
+alert(a);
+```
+Due to the parameter `no-func` of this rule set to `true`, the following pattern is **not** considered a problem:
+
+```javascript
+f();            /*is NOT an error even if it was used before being defined*/
+function f(){
+    // code
+}
+```
+
+### Linebreak Style
+**Allowed** > When developing with a lot of people all having different editors, VCS applications and operating systems it may occur that different line endings are written by either of the mentioned (might especially happen when using the windows and mac versions of SourceTree together).
+
+The linebreaks (new lines) used in windows operating system are usually carriage returns (CR) followed by a line feed (LF) making it a carriage return line feed (CRLF) whereas Linux and Unix use a simple line feed (LF). The corresponding control sequences are `\n` (for LF) and `\r\n` for (CRLF).
+
+Many versioning systems (like git and subversion) can automatically ensure the correct ending. However to cover all contingencies you can activate this rule.
+
+The following patterns are considered problems:
+
+```javascript
+var a = 'a', // \r\n /*error Expected linebreaks to be 'LF' but found 'CRLF'.*/
+    b = 'b'; // \n
+```
+Check out section [Indentation](#indentation) to get more information about spaces and line endings setup.
+
+### Block Scoped Var
+**Allowed** > The `block-scoped-var` rule is intended to generates warnings when variables are used outside of the block in which they were defined. Use `let` and `const` instead if you have setup a JavaScript transpiler like [Babel](babeljs.io) in your development environment.
+
+### Camelcase
+**Error** > When it comes to naming variables, styleguides generally fall into one of two camps: `camelcase` (variableName) and `underscores` (variable_name). This rule focuses on using the `camelcase` approach.
+
+```javascript
+var my_favorite_color = "#112C85"; /*error*/
+```
+
+```javascript
+var myFavoriteColor = "#112C85"; /*Good*/
+```
+
+### Comma Dangle
+**Error** > Trailing commas in object literals are valid according to the ECMAScript 5 (and ECMAScript 3!) spec. On the other hand, trailing commas simplify adding and removing items to objects and arrays, since only the lines you are modifying must be touched.
+
+This rule enforces consistent use of trailing commas in object and array literals.
+The following patterns are considered problems:
+
+```javascript
+var foo = {
+    bar: "baz",
+    qux: "quux",   /*error Unexpected trailing comma.*/
+};
+
+var arr = [1,2,];  /*error Unexpected trailing comma.*/
+```
+
+### Curly
+**Error** > JavaScript allows the omission of curly braces when a block contains only one statement. However, it is considered by many to be best practice to never omit curly braces around blocks, even when they are optional, because it can lead to bugs and reduces code clarity. So the following:
+
+This rule is aimed at preventing bugs and increasing code clarity by ensuring that block statements are wrapped in curly braces. It will throw an error when it encounters blocks that omit curly braces.
+
+The following pattern is considered a problem:
+
+```javascript
+if (foo) foo++;
+```
+Can be rewritten as:
+
+```javascript
+if (foo) {
+    foo++;
+}
+```
+
+### Dot Notation
+**Error** > In JavaScript, one can access properties using the `dot` notation `foo.bar` or square-bracket notation `foo["bar"]`. However, the `dot` notation is often preferred because it is easier to read, less verbose, and works better with aggressive JavaScript minimizers.
+
+This rule is aimed at maintaining code consistency and improving code readability by encouraging use of the dot notation style whenever possible. As such, it will throw an error when it encounters an unnecessary use of square-bracket notation.
+
+The following patterns are considered problems:
+
+```javascript
+var x = foo["bar"]; /*error ["bar"] should be written in dot notation.*/
+```
+
