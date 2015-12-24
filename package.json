@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/frontend-pre-commit-rules",
-  "version": "6.5.1",
+  "version": "6.6.0",
   "description": "Frontend precommit rules",
   "contributors": [
     {
