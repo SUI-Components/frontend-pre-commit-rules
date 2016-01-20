@@ -1585,7 +1585,7 @@ The rule is aimed at preventing the use of a deprecated JavaScript feature, the 
 The following pattern in considered a problem:
 
 ```javascript
-var foo = "Copyright \251"; /*error Don't use octal: '\251'.
+var foo = 'Copyright \251'; /*error Don't use octal: '\251'.*/
 ```
 
 The following pattern are **not** considered problems:
@@ -1920,4 +1920,314 @@ The following patterns are considered problems:
 ```javascript
 var x = foo["bar"]; /*error ["bar"] should be written in dot notation.*/
 ```
+
+### Eqeqeq
+**Error** > It is considered good practice to use the type-safe equality operators `===` and `!==` instead of their regular counterparts `==` and `!=`.
+
+The reason for this is that `==` and `!=` do type coercion which follows the rather obscure Abstract Equality Comparison Algorithm. For instance, the following statements are all considered true:
+
+- [] == false
+- [] == ![]
+- 3 == "03"
+
+If one of those occurs in an innocent-looking statement such as `a == b` the actual problem is very difficult to spot.
+
+```javascript
+if (x == 42) { }            /*error Expected '===' and instead saw '=='.*/
+
+if ("" == text) { }         /*error Expected '===' and instead saw '=='.*/
+
+if (obj.getStuff() != undefined) {
+}                           /*error Expected '!==' and instead saw '!='.*/
+```
+
+### Guard-for-in
+**Allowed** > Looping over objects with a `for in` loop will include properties that are inherited through the prototype chain. This behavior can lead to unexpected items in your for loop.
+
+```javascript
+for (key in foo) {
+    doSomething(key);
+}
+```
+
+This rule is aimed at preventing unexpected behavior that could arise from using a `for in` loop without filtering the results in the loop. As such, it will warn when `for in` loops do not filter their results with an `if` statement.
+
+The following patterns are considered problems:
+```javascript
+for (key in foo) {    
+    /*error The body of a for-in should be wrapped in an if statement to filter unwanted properties from the prototype.*/
+    doSomething(key);
+}
+```
+
+The following patterns are not considered problems:
+
+```javascript
+for (key in foo) {
+    if ({}.hasOwnProperty.call(foo, key)) {
+        doSomething(key);
+    }
+}
+```
+
+### Key-spacing
+**Error** > This rule enforces spacing around the colon in object literal properties. It can verify each property individually, or it can ensure vertical alignment of groups of properties in an object literal.
+
+This rule has the properties `beforeColon` and `afterColon` set to `false` and `true`, respectively.
+
+```javascript
+var obj = { "foo": (42) };
+
+foo = { thisLineWouldBeTooLong:
+    soUseAnotherLine };
+```
+
+### Max-depth
+**Allowed** > The `max-depth` rule allows you to specify the maximum depth blocks can be nested.
+
+```javascript
+function foo() {
+  for (;;) { // Nested 1 deep.
+    if (true) { // Nested 2 deep.
+      if (true) { // Nested 3 deep.
+
+      }
+    }
+  }
+}
+```
+
+This rule aims to reduce the complexity of your code by allowing you to configure the maximum depth blocks can be nested in a function. As such, it will warn when blocks are nested too deeply.
+
+### New-cap
+**Error** > Require Constructors to Use Initial Caps. 
+
+The `new` operator in JavaScript creates a new instance of a particular type of object. That type of object is represented by a constructor function. 
+
+Since constructor functions are just regular functions, the only defining characteristic is that `new` is being used as part of the call. Native JavaScript functions begin with an uppercase letter to distinguish those functions that are to be used as constructors from functions that are not. Many style guides recommend following this pattern to more easily determine which functions are to be used as constructors.
+
+```javascript
+var friend = new Person();
+```
+
+This rule is aimed at helping to distinguish regular functions from constructor functions. As such, it warns whenever it sees new followed by an identifier that isn't capitalized or whenever it sees capitalized function called directly without new operator.
+
+The following patterns are considered problems:
+
+```javascript
+var friend = new person(); /*error A constructor name should not start with a lowercase letter.*/
+var colleague = Person();  /*error A function with a name starting with an uppercase letter should only be used as a constructor.*/
+```
+
+The following patterns are **not** considered problems:
+
+```javascript
+var colleague = Person();
+var colleague = foo.Person();
+var colleague = foo.bar.Person();
+```
+
+### New-parens
+**Error** > Require Parens for Constructors.
+
+JavaScript allows the omission of parentheses when invoking a function via the `new` keyword and the constructor has no arguments. However, some coders believe that omitting the parentheses is inconsistent with the rest of the language and thus makes code less clear.
+
+```javascript
+var person = new Person;
+```
+
+This rule is aimed at highlighting a lack of convention and increasing code clarity by requiring the use of parentheses when invoking a constructor via the `new` keyword. As such, it will warn when these parentheses are omitted.
+
+The following patterns are considered problems:
+
+```javascript
+var person = new Person; /*error Missing '()' invoking a constructor*/
+```
+
+The following patterns are **not** considered problems:
+
+```javascript
+var person = new Person();
+```
+
+### Quotes
+**Error** > Enforce **single** Quote Style
+
+This rule is aimed at ensuring consistency of string quotes and as such will report a problem when an inconsistent style is found.
+
+The following patterns are considered problems:
+
+```javascript
+var single = "single";     /*error Strings must use single quote.*/
+```
+
+### Quote-props
+**Allowed** > Quoting Style for Property Names.
+
+Object literal property names can be defined in two ways: using literals or using strings. For example, these two objects are equivalent:
+
+```javascript
+var object1 = {
+    property: true
+};
+
+var object2 = {
+    "property": true
+};
+```
+
+In many cases, it doesn't matter if you choose to use an identifier instead of a string or vice-versa. Even so, you might decide to enforce a consistent style in your code.
+
+### Radix
+**Error** > Require Radix Parameter.
+
+When using the `parseInt()` function it is common to omit the second argument, the radix, and let the function try to determine from the first argument what type of number it is. By default, `parseInt()` will autodetect decimal and hexadecimal (via `0x` prefix). Prior to ECMAScript 5, `parseInt()` also autodetected octal literals, which caused problems because many developers assumed a leading 0 would be ignored.
+
+This confusion led to the suggestion that you always use the radix parameter to `parseInt()` to eliminate unintended consequences. So instead of doing this:
+
+```javascript
+var num = parseInt("071");      // 57
+```
+
+Do this:
+
+```javascript
+var num = parseInt("071", 10);  // 71
+```
+
+ECMAScript 5 changed the behavior of `parseInt()` so that it no longer autodetects octal literals and instead treats them as decimal literals. However, the differences between hexadecimal and decimal interpretation of the first parameter causes many developers to continue using the radix parameter to ensure the string is interpreted in the intended way.
+
+On the other hand, if the code is targeting only ES5-compliant environments passing the radix `10` may be redundant. In such a case you might want to disallow using such a radix.
+
+This rule is aimed at preventing the unintended conversion of a string to a number of a different base than intended or at preventing the redundant `10` radix if targeting modern environments only.
+
+### Semi
+**Error** > Enforce Semicolons.
+
+JavaScript is unique amongst the C-like languages in that it doesn't require semicolons at the end of each statement. In many cases, the JavaScript engine can determine that a semicolon should be in a certain spot and will automatically add it. This feature is known as automatic semicolon insertion (ASI) and is considered one of the more controversial features of JavaScript. For example, the following lines are both valid:
+
+```javascript
+var name = "ESLint"
+var website = "eslint.org";
+```
+
+However, the ASI mechanism can sometimes be tricky to people who are using semicolons. For example, consider this code:
+
+```javascript
+return
+{
+    name: 'ESLint'
+};
+```
+
+This may look like a `return` statement that returns an object literal, however, the JavaScript engine will interpret this code as:
+
+```jasvascript
+return;
+{
+    name: 'ESLint';
+}
+```
+
+Effectively, a semicolon is inserted after the `return` statement, causing the code below it (a labeled literal inside a block) to be unreachable. This rule and the `no-unreachable` rule will protect your code from such cases.
+
+On the other side of the argument are those who says that since semicolons are inserted automatically, they are optional and do not need to be inserted manually. However, the ASI mechanism can also be tricky to people who don't use semicolons. For example, consider this code:
+
+```javascript
+var globalCounter = { }
+
+(function () {
+    var n = 0
+    globalCounter.increment = function () {
+        return ++n
+    }
+})()
+```
+
+In this example, a semicolon will not be inserted after the first line, causing a run-time error (because an empty object is called as if it's a function). The `no-unexpected-multiline` rule can protect your code from such cases.
+
+Although ASI allows for more freedom over your coding style, it can also make your code behave in an unexpected way, whether you use semicolons or not. Therefore, it is best to know when ASI takes place and when it does not, and have ESLint protect your code from these potentially unexpected cases. In short, as once described by Isaac Schlueter, a `\n` character always ends a statement (just like a semicolon) unless one of the following is true:
+
+The statement has an unclosed paren, array literal, or object literal or ends in some other way that is not a valid way to end a statement. (For instance, ending with `.` or `,`.)
+The line is `--` or `++` (in which case it will decrement/increment the next token.)
+It is a `for()`, `while()`, `do`, `if()`, or `else`, and there is no `{`
+The next line starts with `[`, `(`, `+`, `*`, `/`, `-`, `,`, `.`, or some other binary operator that can only be found between two tokens in a single expression.
+
+### Space-infix-ops
+**Error** > Require Spaces Around Infix Operators.
+
+This rule is aimed at ensuring there are spaces around infix operators.
+
+While formatting preferences are very personal, a number of style guides require spaces around operators, such as:
+
+```javascript
+var sum = 1 + 2;
+```
+
+The proponents of these extra spaces believe it make the code easier to read and can more easily highlight potential errors, such as:
+
+```javascript
+var sum = 1+++2;
+```
+
+While this is valid JavaScript syntax, it is hard to determine what the author intended.
+
+### Strict
+**Allowed** > Strict Mode
+
+A Use Strict Directive at the beginning of a script or function body enables strict mode semantics:
+
+```javascript
+'use-strict';
+```
+
+When used globally, as in the preceding example, the entire script, including all contained functions, are strict mode code. It is also possible to specify function-level strict mode, such that strict mode applies only to the function in which the directive occurs:
+
+```javascript
+function foo() {
+    "use strict";
+    return;
+}
+
+var bar = function() {
+    "use strict";
+    return;
+};
+```
+
+This rule is aimed at using strict directives effectively, and as such, will flag any unexpected uses or omissions of strict directives.
+
+### Use-isnan
+**Error** > Require isNaN()
+
+In JavaScript, `NaN` is a special value of the `Number` type. It's used to represent any of the "not-a-number" values represented by the double-precision 64-bit format as specified by the IEEE Standard for Binary Floating-Point Arithmetic. `NaN` has the unique property of not being equal to anything, including itself. That is to say, that the condition `NaN !== NaN` evaluates to true.
+
+This rule is aimed at eliminating potential errors as the result of comparing against the special value `NaN`.
+
+The following patterns are considered problems:
+
+```javascript
+if (foo == NaN) { /*error Use the isNaN function to compare with NaN.*/
+    // ...
+}
+
+if (foo != NaN) { /*error Use the isNaN function to compare with NaN.*/
+    // ...
+}
+```
+
+The following patterns are **not** considered problems:
+
+```javascript
+if (isNaN(foo)) {
+    // ...
+}
+
+if (isNaN(NaN)) {
+    // ...
+}
+```
+
+
+
 
