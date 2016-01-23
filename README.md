@@ -2325,7 +2325,7 @@ class MyNamedComponent extends React.Component {
 }
 ```
 
-### Jsx-no-undef
+### React/jsx-no-undef
 **Warning** > Disallow undeclared variables in JSX.
 
 This rules can help you locate potential ReferenceErrors resulting from misspellings or missing components.
@@ -2344,7 +2344,7 @@ import MyComponent from './src';
 <MyComponent data={data} />
 ```
 
-### Jsx-uses-react
+### React/jsx-uses-react
 **Warning** > Prevent React to be incorrectly marked as unused.
 
 JSX expands to a call to `React.createElement`, a file which includes React but only uses JSX should consider the React variable as used.
@@ -2367,7 +2367,7 @@ import React from 'react';
 const Stateless = (props) => <div>Hello {this.props.name}</div>;
 ```
 
-### Jsx-uses-vars
+### React/jsx-uses-vars
 **Warning** > Prevent variables used in JSX to be incorrectly marked as unused.
 
 Since 0.17.0 the ESLint `no-unused-vars` rule does not detect variables used in JSX (see details). This rules will find variables used in JSX and mark them as used.
@@ -2388,7 +2388,7 @@ import React from 'react';
 const Stateless = (props) => <div>Hello {this.props.name}</div>;
 ```
 
-### No-did-mount-set-state
+### React/no-did-mount-set-state
 **Allowed** > Prevent usage of setState in componentDidMount.
 
 Updating the state after a component mount will trigger a second `render()`` call and can lead to property/layout thrashing.
@@ -2422,7 +2422,7 @@ class MyComponent extends React.Component {
 ```
 
 
-### No-did-update-set-state
+### React/no-did-update-set-state
 **Allowed** > Prevent usage of setState in componentDidUpdate.
 
 Updating the state after a component update will trigger a second `render()`` call and can lead to property/layout thrashing.
@@ -2467,7 +2467,7 @@ class MyComponent extends React.Component {
 }
 ```
 
-### No-multi-comp
+### React/no-multi-comp
 **Error** > Prevent multiple component definition per file.
 
 Declaring only one component per file improves readability and reusability of components.
@@ -2512,7 +2512,7 @@ class MyFirstComponent extends React.Component {
 export default {MyFirstComponent};
 ```
 
-### Prop-types
+### React/prop-types
 **Error** > Prevent missing props validation in a React component definition.
 
 PropTypes improve the reusability of your component by validating the received data.
@@ -2548,7 +2548,7 @@ MyFirstComponent.propTypes = {
 ```
 
 
-### React-in-jsx-scope
+### React/react-in-jsx-scope
 **Warning** > Prevent missing React when using JSX.
 
 When using JSX, `<a />` expands to `React.createElement("a")`. Therefore the React variable must be in scope.
@@ -2568,7 +2568,7 @@ const Stateless = (props) => <div>Hello {this.props.name}</div>;
 ```
 
 
-### Self-closing-comp
+### React/self-closing-comp
 **Error** > Prevent extra closing tags for components without children.
 
 Components without children can be self-closed to avoid unnecessary extra closing tag.
@@ -2586,7 +2586,7 @@ const MyComp = <TitleComponent name='This is a title' />
 ```
 
 
-### Wrap-multilines
+### React/wrap-multilines
 **Error** > Prevent missing parentheses around multiline JSX.
 
 Wrapping multiline JSX in parentheses can improve readability and/or convenience. It optionally takes a second parameter in the form of an object, containing places to apply the rule. By default, "declaration", "assignment", and "return" syntax is checked, but these can be explicitly disabled. Any syntax type missing in the object will follow the default behavior.
