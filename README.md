@@ -196,17 +196,17 @@ This documentation is a step by step guide to add JS, SASS and React linter in *
 ----
 
 * [JSX Syntax](#jsx-syntax)
-    - [react/display-name](#react/display-name)
-    - [react/jsx-no-undef](#react/jsx-no-undef)
-    - [react/jsx-uses-react](#react/jsx-uses-react)
-    - [react/jsx-uses-vars](#react/jsx-uses-vars)
-    - [react/no-did-mount-set-state](#react/no-did-mount-set-state)
-    - [react/no-did-update-set-state](#react/no-did-update-set-state)
-    - [react/no-multi-comp](#react/no-multi-comp)
-    - [react/prop-types](#react/prop-types)
-    - [react/react-in-jsx-scope](#react/react-in-jsx-scope)
-    - [react/self-closing-comp](#react/self-closing-comp)
-    - [react/wrap-multilines](#react/wrap-multilines)
+    - [react/display-name](#reactdisplay-name)
+    - [react/jsx-no-undef](#reactjsx-no-undef)
+    - [react/jsx-uses-react](#reactjsx-uses-react)
+    - [react/jsx-uses-vars](#reactjsx-uses-vars)
+    - [react/no-did-mount-set-state](#reactno-did-mount-set-state)
+    - [react/no-did-update-set-state](#reactno-did-update-set-state)
+    - [react/no-multi-comp](#reactno-multi-comp)
+    - [react/prop-types](#reactprop-types)
+    - [react/react-in-jsx-scope](#reactreact-in-jsx-scope)
+    - [react/self-closing-comp](#reactself-closing-comp)
+    - [react/wrap-multilines](#reactwrap-multilines)
 
 ----
 
