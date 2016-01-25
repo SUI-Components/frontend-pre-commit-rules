@@ -79,54 +79,6 @@ This documentation is a step by step guide to add JS, SASS and React linter in *
 
 ----
 
-* [SASS Syntax](#sass-syntax)
-    - [BangFormat](#bangformat)
-    - [BorderZero](#borderzero)
-    - [ColorVariable](#colorvariable)
-    - [Comment](#comment)
-    - [DebugStatement](#debugstatement)
-    - [DeclarationOrder](#declarationorder)
-    - [DuplicateProperty](#duplicateproperty)
-    - [ElsePlacement](#elseplacement)
-    - [EmptyLineBetweenBlocks](#emptylinebetweenblocks)
-    - [EmptyRule](#emptyrule)
-    - [FinalNewline](#finalnewline)
-    - [HexLength](#hexlength)
-    - [HexNotation](#hexnotation)
-    - [HexValidation](#hexvalidation)
-    - [IdSelector](#idselector)
-    - [ImportantRule](#importantrule)
-    - [ImportPath](#importpath)
-    - [Indentation](#indentation)
-    - [LeadingZero](#leadingzero)
-    - [MergeableSelector](#mergeableselector)
-    - [NameFormat](#nameformat)
-    - [NestingDepth](#nestingdepth)
-    - [PlaceholderInExtend](#placeholderinextend)
-    - [PropertySortOrder](#propertysortorder)
-    - [PropertySpelling](#propertyspelling)
-    - [SelectorDepth](#selectordepth)
-    - [SelectorFormat](#selectorformat)
-    - [Shorthand](#shorthand)
-    - [SingleLinePerProperty](#singlelineperproperty)
-    - [SingleLinePerSelector](#singlelineperselector)
-    - [SpaceAfterComma](#spaceaftercomma)
-    - [SpaceAfterPropertyColon](#spaceafterpropertycolon)
-    - [SpaceAfterPropertyName](#spaceafterpropertyname)
-    - [SpaceBeforeBrace](#spacebeforebrace)
-    - [SpaceBetweenParens](#spacebetweenparens)
-    - [StringQuotes](#stringquotes)
-    - [TrailingSemicolon](#trailingsemicolon)
-    - [TrailingZero](#trailingzero)
-    - [UnnecessaryMantissa](#unnecessarymantissa)
-    - [UnnecessaryParentReference](#unnecessaryparentreference)
-    - [UrlFormat](#urlformat)
-    - [UrlQuotes](#urlquotes)
-    - [VendorPrefixes](#vendorprefixes)
-    - [ZeroUnit](#zerounit)
-
-----
-
 * [JS Syntax](#js-syntax)
     - [no-alert](#no-alert)
     - [no-array-constructor](#no-array-constructor)
@@ -212,22 +164,6 @@ This documentation is a step by step guide to add JS, SASS and React linter in *
 
 # SASS Syntax
 Here you'll find a use case example for every SASS linting rule specified in this set:
-
-### BangFormat
-
-Defines the right use of  *the bang* `!` in `!default`, `!global`,  and `!optional` flags.
-
-**Bad**
-
-```scss
-$c-bg-light: #ffffff!default
-```
-
-**Good**
-
-```scss
-$c-bg-light: #ffffff !default
-```
 
 ### BorderZero
 
