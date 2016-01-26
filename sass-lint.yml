@@ -20,7 +20,7 @@ rules:
     - allow-single-line: false
   class-name-format:
     - 1
-    - convention: "^(?:[a-zA-Z0-9]*)\\-[A-Z]{1}[a-z][a-zA-Z0-9]*(?:\\-[a-z][a-zA-Z0-9]*)?(?:\\-\\-[a-z][a-zA-Z0-9]*)?$"
+    - convention: "^[A-Z]{1}[a-z][a-zA-Z0-9]*(?:\\-[a-z][a-zA-Z0-9]*)?(?:\\-\\-[a-z][a-zA-Z0-9]*)?$"
   clean-import-paths:
     - 1
     - filename-extension: false
