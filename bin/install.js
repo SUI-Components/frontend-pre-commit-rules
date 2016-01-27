@@ -2,7 +2,6 @@
 
 var Validate = require('git-validate');
 
-Validate.copy('../csscomb.json', '.csscomb.json', { overwrite: true });
 Validate.copy('../eslintrc', '.eslintrc', { overwrite: true });
 Validate.copy('../editorconfig', '.editorconfig', { overwrite: true });
 Validate.copy('../scss-lint.yml', '.scss-lint.yml', { overwrite: true });
