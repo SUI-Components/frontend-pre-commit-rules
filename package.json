@@ -1,42 +1,16 @@
 {
-  "name": "@schibstedspain/frontend-pre-commit-rules",
-  "version": "6.6.1",
-  "description": "Frontend precommit rules",
+  "name": "sui-pre-commit-rules",
+  "version": "0.2.0",
+  "description": "SUI precommit rules",
+  "author": "SUI Engineers | @suiengineers",
   "contributors": [
     {
-      "name": "Daniel de la Cruz",
-      "email": "daniel.delacruz@scmspain.com",
-      "url": "https://github.com/danderu"
-    },
-    {
-      "name": "David Garcia",
-      "email": "david.garcia@scmspain.com",
-      "url": "https://github.com/davecarter"
-    },
-    {
-      "name": "Carlos Villuendas",
-      "email": "carlos.villuendas@scmspain.com",
-      "url": "https://github.com/carlosvillu"
-    },
-    {
       "name": "Joan Leon",
-      "email": "joan.leon@infojobs.net",
+      "email": "joan.leon@gmail.com",
       "url": "https://github.com/nucliweb"
-    },
-    {
-      "name": "Nahuel Sotelo",
-      "email": "nahuelsotelo@gmail.com",
-      "url": "https://github.com/nahuelsotelo"
-    },
-    {
-      "name": "Marcelo Alves",
-      "email": "marcelo.alves.design@gmail.com",
-      "url": "https://github.com/marcelopereirascmspain"
     }
   ],
   "keywords": [
-    "ReactJS",
-    "JSX",
     "Javascript",
     "JS",
     "ES6",
@@ -46,7 +20,8 @@
     "linting",
     "precommit",
     "rules",
-    "schibstedspain"
+    "sui",
+    "suiengineers"
   ],
   "scripts": {
     "install": "node bin/install.js",
@@ -56,13 +31,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/scm-spain/frontend-pre-commit-rules.git"
+    "url": "git+https://github.com/SUI-Framework/sui-pre-commit-rules.git"
   },
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/scm-spain/frontend-pre-commit-rules/issues"
+    "url": "https://github.com/SUI-Framework/sui-pre-commit-rules/issues"
   },
-  "homepage": "https://github.com/scm-spain/frontend-pre-commit-rules#readme",
+  "homepage": "https://github.com/SUI-Framework/sui-pre-commit-rules#readme",
   "dependencies": {
     "git-validate": "^1.2.1",
     "gh-pages": "^0.3.1"
