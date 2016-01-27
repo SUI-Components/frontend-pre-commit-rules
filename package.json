@@ -1,6 +1,6 @@
 {
   "name": "sui-pre-commit-rules",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "SUI precommit rules",
   "author": "SUI Engineers | @suiengineers",
   "contributors": [
