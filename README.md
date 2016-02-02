@@ -1,4 +1,4 @@
-# Frontend precommit rules for Javascript, SASS and ReactJS
+# Frontend precommit rules for Javascript and SASS
 
 ### The main goal of this set of rules is to establish healthy boundaries where cleaner code will be easier to share, more scalable, more readable and easier to maintain for everyone.
 
@@ -25,11 +25,6 @@ If you are wondering if this set of rules if for you here's a brief description.
 - Use dot notation, camel case and single quotes.
 - ...
 
-####**Your ReactJS code must**
-- Include just one component per file.
-- Always declare expected proptype.
-- Use JSX.
-- ...
 
 
 In addition, ES6 syntax is fully supported thanks to BabelJS. Feel free to use the right transpiling level for your project. Set the [right value](https://babeljs.io/docs/usage/babelrc/) in `.babelrc` config file.
@@ -47,7 +42,7 @@ In addition, ES6 syntax is fully supported thanks to BabelJS. Feel free to use t
 ----
 
 # Linter Installation
-This documentation is a step by step guide to add JS, SASS and React linter in **Sublime Text 3**. Feel free to use the code editor of your choice. Just make sure you can add *Eslint* and *SASS-Lint* config files.
+This documentation is a step by step guide to add JS and SASS linter in **Sublime Text 3**. Feel free to use the code editor of your choice. Just make sure you can add *Eslint* and *SASS-Lint* config files.
 
 ### Step 1 - Package Control
 - Make sure you have Package Control installed in your copy of Sublime Text by pressing `cmd + Shift + p` and typing `Package Control: Install Package`.
@@ -177,7 +172,6 @@ This documentation is a step by step guide to add JS, SASS and React linter in *
     - [dot-notation](#dot-notation)
     - [eqeqeq](#eqeqeq)
     - [guard-for-in](#guard-for-in)
-    - [jsx-quotes](#jsx-quotes)
     - [key-spacing](#key-spacing)
     - [max-depth](#max-depth)
     - [new-cap](#new-cap)
@@ -192,21 +186,6 @@ This documentation is a step by step guide to add JS, SASS and React linter in *
     - [valid-typeof](#valid-typeof)
     - [wrap-iife](#wrap-iife)
     - [wrap-regex](#wrap-regex)
-
-----
-
-* [JSX Syntax](#jsx-syntax)
-    - [react/display-name](#reactdisplay-name)
-    - [react/jsx-no-undef](#reactjsx-no-undef)
-    - [react/jsx-uses-react](#reactjsx-uses-react)
-    - [react/jsx-uses-vars](#reactjsx-uses-vars)
-    - [react/no-did-mount-set-state](#reactno-did-mount-set-state)
-    - [react/no-did-update-set-state](#reactno-did-update-set-state)
-    - [react/no-multi-comp](#reactno-multi-comp)
-    - [react/prop-types](#reactprop-types)
-    - [react/react-in-jsx-scope](#reactreact-in-jsx-scope)
-    - [react/self-closing-comp](#reactself-closing-comp)
-    - [react/wrap-multilines](#reactwrap-multilines)
 
 ----
 
@@ -691,7 +670,7 @@ The max nesting selectors in SASS files is: **4 levels**.
 
 ```scss
 .sui-Component {
-… 
+…
 }
 .sui-Component-header {
 …
@@ -1241,7 +1220,7 @@ var err = 'x';
 try {
     throw "problem";
 } catch (err) {  /*error Value of 'err' may be overwritten in IE 8 and earlier.*/
-    
+
     [...]
 }
 ```
@@ -1788,7 +1767,7 @@ With this rule enabled the following characters will cause warnings outside of s
 if(foo  === "bar") {}
 ```
 
-It's hard to tell, but there are two spaces between `foo` and `===`. 
+It's hard to tell, but there are two spaces between `foo` and `===`.
 Multiple spaces such as this are generally frowned upon in favor of single spaces:
 
 ```javascript
@@ -1959,17 +1938,6 @@ for (key in foo) {
 ```
 
 
-### JSX-Quotes
-**Error** > Enforce **single quote** style for JSX attributes.
-(**Please, update eslint to v.1.10.3 to deprecate previous react/jsx-quotes rule**).
-
-JSX attribute values can contain string literals or assets sources, which must to be delimited with single quotes:
-
-```javascript
-<img src='./images/logo.png' />
-```
-
-
 ### Key-spacing
 **Error** > This rule enforces spacing around the colon in object literal properties. It can verify each property individually, or it can ensure vertical alignment of groups of properties in an object literal.
 
@@ -2000,9 +1968,9 @@ function foo() {
 This rule aims to reduce the complexity of your code by allowing you to configure the maximum depth blocks can be nested in a function. As such, it will warn when blocks are nested too deeply.
 
 ### New-cap
-**Error** > Require Constructors to Use Initial Caps. 
+**Error** > Require Constructors to Use Initial Caps.
 
-The `new` operator in JavaScript creates a new instance of a particular type of object. That type of object is represented by a constructor function. 
+The `new` operator in JavaScript creates a new instance of a particular type of object. That type of object is represented by a constructor function.
 
 Since constructor functions are just regular functions, the only defining characteristic is that `new` is being used as part of the call. Native JavaScript functions begin with an uppercase letter to distinguish those functions that are to be used as constructors from functions that are not. Many style guides recommend following this pattern to more easily determine which functions are to be used as constructors.
 
@@ -2261,9 +2229,9 @@ typeof bar === typeof qux
 Require immediate function invocation to be wrapped in parentheses.
 
 ```javascript
-var (x = function () { 
-    return { 
-        y: 1 
+var (x = function () {
+    return {
+        y: 1
     };
 })();
 ```
@@ -2273,7 +2241,7 @@ Since function statements cannot be immediately invoked, and function expression
 ### Wrap-regex
 **Allowed** > Require Regex Literals to be Wrapped.
 
-When a regular expression is used in certain situations, it can end up looking like a division operator. 
+When a regular expression is used in certain situations, it can end up looking like a division operator.
 
 This is used to disambiguate the slash operator and facilitates more readable code.
 
@@ -2281,7 +2249,7 @@ The following patterns are considered problems:
 
 ```javascript
 function a() {
-    return /foo/.test("bar"); 
+    return /foo/.test("bar");
     /*error Wrap the regexp literal in parens to disambiguate the slash.*/
 }
 ```
@@ -2291,331 +2259,5 @@ The following patterns are **not** considered problems:
 ```javascript
 function a() {
     return (/foo/).test("bar");
-}
-```
-
-
-----
-
-
-# JSX Syntax
-React linting is provided by [Eslint-Plugin-React](https://github.com/yannickcr/eslint-plugin-react). We use JSX with React. These set of rules also has a different level of acceptance as JS:
-
-- **Allowed** > You can use whatever is specified in this rule.
-- **Warning** > If you don't follow this rule you'll get a warning alert in console.
-- **Error** > You are not allowed to omit this rule.
-
-### React/display-name
-**Allowed** > `displayName` allows you to name your component in a React component definition. This name is used by React in debugging messages.
-
-Example:
-
-```javascript
-class MyNamedComponent extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.displayName = 'My named component';
-        ...
-    }
-
-    render(){
-        return /* Your JSX here */
-    }
-}
-```
-
-### React/jsx-no-undef
-**Warning** > Disallow undeclared variables in JSX.
-
-This rules can help you locate potential ReferenceErrors resulting from misspellings or missing components.
-
-The following patterns are considered warnings:
-
-```html
-<MyComponent data={data} />
-```
-
-The following patterns **are not** considered warnings:
-
-```html
-import MyComponent from './src';
-
-<MyComponent data={data} />
-```
-
-### React/jsx-uses-react
-**Warning** > Prevent React to be incorrectly marked as unused.
-
-JSX expands to a call to `React.createElement`, a file which includes React but only uses JSX should consider the React variable as used.
-
-This rule has no effect if the `no-unused-vars` rule is not enabled.
-
-The following patterns are considered warnings:
-
-```javascript
-import React from 'react';
-
-// nothing to do with React
-```
-
-The following patterns **are not** considered warnings:
-
-```
-import React from 'react';
-
-const Stateless = (props) => <div>Hello {this.props.name}</div>;
-```
-
-### React/jsx-uses-vars
-**Warning** > Prevent variables used in JSX to be incorrectly marked as unused.
-
-Since 0.17.0 the ESLint `no-unused-vars` rule does not detect variables used in JSX (see details). This rules will find variables used in JSX and mark them as used.
-
-This rule has no effect if the `no-unused-vars` rule is not enabled.
-
-```javascript
-import React from 'react';
-
-// nothing to do with React
-```
-
-The following patterns **are not** considered warnings:
-
-```
-import React from 'react';
-
-const Stateless = (props) => <div>Hello {this.props.name}</div>;
-```
-
-### React/no-did-mount-set-state
-**Allowed** > Prevent usage of setState in componentDidMount.
-
-Updating the state after a component mount will trigger a second `render()`` call and can lead to property/layout thrashing.
-
-The following patterns are considered warnings:
-
-```javascript
-class MyComponent extends React.Component {
-    componentDidMount(){
-        this.setEstate({
-            data: data
-        });
-    }
-}
-```
-
-The following patterns **are not** considered warnings:
-
-```javascript
-class MyComponent extends React.Component {
-    constructor(){
-         this.setEstate({
-            data: data
-        });
-    }
-
-    componentDidMount(){
-       ...
-    }
-}
-```
-
-
-### React/no-did-update-set-state
-**Allowed** > Prevent usage of setState in componentDidUpdate.
-
-Updating the state after a component update will trigger a second `render()`` call and can lead to property/layout thrashing.
-
-The following patterns are considered warnings:
-
-```
-class MyComponent extends React.Component {
-    componentDidUpdate(){
-        this.setEstate({
-            name: this.props.name.toUpperCase()
-        });
-    }
-
-    render(){
-        return(
-            <div>Hello {this.state.name} </div>
-        )
-    }
-}
-```
-
-The following patterns **are not** considered warnings:
-
-```
-class MyComponent extends React.Component {
-    constructor(){
-         this.setEstate({
-            name: this.props.name.toUpperCase()
-        });
-    }
-
-    componentDidUpdate(){
-       this.props.onUpdate();
-    }
-
-    render(){
-        return(
-            <div>Hello {this.props.name} </div>
-        )
-    }
-}
-```
-
-### React/no-multi-comp
-**Error** > Prevent multiple component definition per file.
-
-Declaring only one component per file improves readability and reusability of components.
-
-The following patterns are considered errors:
-
-```
-// File components.js
-
-class MyFirstComponent extends React.Component {
-    render(){
-        return(
-            <div>Hello {this.props.name} </div>
-        )
-    }
-}
-
-class MySecondComponent extends React.Component {
-    render(){
-        return(
-            <div>Hello {this.props.name} </div>
-        )
-    }
-}
-
-export default {MyFirstComponent, MySecondComponent};
-```
-
-The following patterns **are not** considered errors:
-
-```
-// File myFirstComponent.js
-
-class MyFirstComponent extends React.Component {
-    render(){
-        return(
-            <div>Hello {this.props.name} </div>
-        )
-    }
-}
-
-export default {MyFirstComponent};
-```
-
-### React/prop-types
-**Error** > Prevent missing props validation in a React component definition.
-
-PropTypes improve the reusability of your component by validating the received data.
-
-It can warn other developers if they make a mistake while reusing the component with improper data type.
-
-The following patterns are considered errors:
-
-```
-class MyFirstComponent extends React.Component {
-    render(){
-        return(
-            <div>Hello {this.props.name} </div>
-        )
-    }
-}
-```
-
-The following patterns **are not** considered errors:
-
-```
-class MyFirstComponent extends React.Component {
-    render(){
-        return(
-            <div>Hello {this.props.name} </div>
-        )
-    }
-}
-
-MyFirstComponent.propTypes = {
-  name: React.PropTypes.string
-};
-```
-
-
-### React/react-in-jsx-scope
-**Warning** > Prevent missing React when using JSX.
-
-When using JSX, `<a />` expands to `React.createElement("a")`. Therefore the React variable must be in scope.
-
-The following patterns are considered warnings:
-
-```
-const Stateless = (props) => <div>Hello {this.props.name}</div>;
-```
-
-The following patterns **are not** considered warnings:
-
-```
-import React from 'react';
-
-const Stateless = (props) => <div>Hello {this.props.name}</div>;
-```
-
-
-### React/self-closing-comp
-**Error** > Prevent extra closing tags for components without children.
-
-Components without children can be self-closed to avoid unnecessary extra closing tag.
-
-The following patterns are considered errors:
-
-```
-const MyComp = <TitleComponent name='This is a title'></TitleComponent>
-```
-
-The following patterns **are not** considered errors:
-
-```
-const MyComp = <TitleComponent name='This is a title' />
-```
-
-
-### React/wrap-multilines
-**Error** > Prevent missing parentheses around multiline JSX.
-
-Wrapping multiline JSX in parentheses can improve readability and/or convenience. It optionally takes a second parameter in the form of an object, containing places to apply the rule. By default, "declaration", "assignment", and "return" syntax is checked, but these can be explicitly disabled. Any syntax type missing in the object will follow the default behavior.
-
-The following patterns are considered errors:
-
-```
-class MyFirstComponent extends React.Component {
-    render(){
-        return
-            <div>
-                <h1>Hello {this.props.name}</h1>
-            </div>
-    }
-}
-```
-
-The following patterns **are not** considered errors:
-
-```
-const singleLineJSX = <p>Hello</p>
-
-class MyFirstComponent extends React.Component {
-    render(){
-        return(
-            <div>
-                <h1>Hello {this.props.name}</h1>
-            </div>
-        )
-    }
 }
 ```
