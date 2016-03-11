@@ -27,6 +27,7 @@
       "objectLiteralComputedProperties": true
     },
     "rules": {
+      "jsx-quotes": [2, "prefer-single"],
       "no-alert": 2,
       "no-array-constructor": 2,
       "no-caller": 2,
@@ -98,7 +99,6 @@
       "wrap-regex": 0,
 
       "react/display-name": 0,
-      "react/jsx-quotes": [2, "prefer-single"],
       "react/jsx-no-undef": 1,
       "react/jsx-uses-react": 1,
       "react/jsx-uses-vars": 1,
