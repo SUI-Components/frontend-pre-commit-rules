@@ -64,7 +64,7 @@
   },
   "homepage": "https://github.com/scm-spain/frontend-pre-commit-rules#readme",
   "dependencies": {
-    "git-validate": "^1.2.1",
+    "git-validate": "2.1",
     "gh-pages": "^0.3.1"
   }
 }
