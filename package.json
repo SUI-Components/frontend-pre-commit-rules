@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/frontend-pre-commit-rules",
-  "version": "6.7.0",
+  "version": "7.0.0",
   "description": "Frontend precommit rules",
   "contributors": [
     {
@@ -32,6 +32,11 @@
       "name": "Marcelo Alves",
       "email": "marcelo.alves.design@gmail.com",
       "url": "https://github.com/marcelopereirascmspain"
+    },
+    {
+      "name": "Miguel Ángel Durán",
+      "email": "miduga@gmail.com",
+      "url": "https://github.com/miduga"
     }
   ],
   "keywords": [
@@ -50,7 +55,6 @@
   ],
   "scripts": {
     "install": "node bin/install.js",
-
     "doc": "npm run doc:build",
     "doc:build": "gh-pages -d docs"
   },
@@ -63,8 +67,18 @@
     "url": "https://github.com/scm-spain/frontend-pre-commit-rules/issues"
   },
   "homepage": "https://github.com/scm-spain/frontend-pre-commit-rules#readme",
+  "devDependencies": {
+    "gh-pages": "^0.11.0"
+  },
   "dependencies": {
+    "eslint": "^3.1.1",
+    "eslint-config-standard": "^5.3.5",
+    "eslint-config-standard-jsx": "^2.0.0",
+    "eslint-config-standard-react": "^3.0.0",
+    "eslint-plugin-promise": "^2.0.0",
+    "eslint-plugin-react": "^5.2.2",
+    "eslint-plugin-standard": "^2.0.0",
     "git-validate": "^1.2.1",
-    "gh-pages": "^0.3.1"
+    "sass-lint": "^1.8.2"
   }
 }
