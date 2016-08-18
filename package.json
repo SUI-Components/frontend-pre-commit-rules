@@ -55,9 +55,11 @@
   ],
   "bin": {
     "lint-js": "./node_modules/.bin/eslint",
-    "lint-sass": "./node_modules/.bin/sass-lint"
+    "lint-sass": "./node_modules/.bin/sass-lint",
+    "install-lint": "./bin/install.js"
   },
   "scripts": {
+    "prepublish": "node bin/create-eslint-config.js",
     "install": "node bin/install.js",
     "doc": "npm run doc:build",
     "doc:build": "gh-pages -d docs"
@@ -72,17 +74,17 @@
   },
   "homepage": "https://github.com/scm-spain/frontend-pre-commit-rules#readme",
   "devDependencies": {
-    "gh-pages": "^0.11.0"
+    "gh-pages": "^0.11.0",
+    "eslint-config-standard": "5.3",
+    "eslint-config-standard-jsx": "2.0",
+    "merge-deep": "^3.0.0"
   },
   "dependencies": {
-    "eslint": "^3.1.1",
-    "eslint-config-standard": "^5.3.5",
-    "eslint-config-standard-jsx": "^2.0.0",
-    "eslint-config-standard-react": "^3.0.0",
-    "eslint-plugin-promise": "^2.0.0",
-    "eslint-plugin-react": "^5.2.2",
-    "eslint-plugin-standard": "^2.0.0",
-    "git-validate": "^1.2.1",
-    "sass-lint": "^1.8.2"
+    "eslint": "3.1",
+    "eslint-plugin-promise": "2.0",
+    "eslint-plugin-react": "5.2",
+    "eslint-plugin-standard": "2.0",
+    "git-validate": "1.2",
+    "sass-lint": "1.8"
   }
 }

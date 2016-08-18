@@ -2,7 +2,7 @@
 
 'use strict'
 
-var Validate = require('git-validate')
+const Validate = require('git-validate')
 
 Validate.copy('../eslintignore', '.eslintignore', { overwrite: true })
 Validate.copy('../eslintrc', '.eslintrc', { overwrite: true })
