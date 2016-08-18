@@ -50,7 +50,6 @@
   ],
   "scripts": {
     "install": "node bin/install.js",
-
     "doc": "npm run doc:build",
     "doc:build": "gh-pages -d docs"
   },
@@ -64,7 +63,9 @@
   },
   "homepage": "https://github.com/scm-spain/frontend-pre-commit-rules#readme",
   "dependencies": {
-    "git-validate": "^1.2.1",
+    "git-validate": "1.2.1"
+  },
+  "devDependencies": {
     "gh-pages": "^0.3.1"
   }
 }
