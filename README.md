@@ -12,17 +12,7 @@ These linting rules comes preconfigured as a [precommit hook](http://githooks.co
 
 In order to do so we decided to rely on [Eslint](http://eslint.org/), a great Javascript linter by [Nicholas C. Zakas](https://twitter.com/slicknet) and [SASS-Lint](https://github.com/sasstools/sass-lint) for... yes! SASS linting.
 
-In addition, ES6 syntax is fully supported thanks to BabelJS. Feel free to use the right transpiling level for your project. Set the [right value](https://babeljs.io/docs/usage/babelrc/) in `.babelrc` config file.
-
-----
-
-#### Index
-* [Linter Installation](#linter-installation)
-    - [Step 1 - Package Control](#step-1---package-control)
-    - [Step 2 - Install Sublime Linting plugins](#step-2---install-plugin)
-    - [Step 3 - Install node-sass library](#step-3---install-node-sass-library)
-    - [Step 4 - Install SASS Linting plugin](#step-4---install-sass-linting-plugin)
-    - [Step 5 - Install Eslint for JS Linting plugin](#step-5---install-eslint-for-js-linting-plugin)
+In addition, ES6/ES7/JSX and object rest/spread syntax is fully supported.
 
 ----
 
@@ -51,7 +41,6 @@ This documentation is a step by step guide to add JS, SASS and React linter in *
 - Open Package control in Sublime Text by typing: `cmd + shift + p` and then search for `install package`
 - Select `SublimeLinter-contrib-sass-lint` and install.
 - Select `SublimeLinter-contrib-eslint` and install.
-- SASS linting rules must be defined in a `.sass-lint.yml` file in the root directory.
 
 ----
 
