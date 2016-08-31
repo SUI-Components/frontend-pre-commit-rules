@@ -55,12 +55,10 @@
   ],
   "bin": {
     "lint-js": "./node_modules/.bin/eslint",
-    "lint-sass": "./node_modules/.bin/sass-lint",
-    "install-lint": "./bin/install.js"
+    "lint-sass": "./node_modules/.bin/sass-lint"
   },
   "scripts": {
     "install": "node bin/install.js",
-    "link": "node bin/install.js",
     "doc": "npm run doc:build",
     "doc:build": "gh-pages -d docs"
   },
