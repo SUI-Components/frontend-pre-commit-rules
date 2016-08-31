@@ -2,7 +2,7 @@
 
 'use strict'
 
-const OVERWRITE = 1
+const OVERWRITE = true
 const º = console.log
 const Validate = require('git-validate')
 
@@ -17,8 +17,8 @@ Validate.copy('../config/.sass-lint.yml', '.sass-lint.yml', OVERWRITE)
 
 º('Files copied! Adding scripts to package.json')
 
-Validate.installScript('lint:js', 'lint-js --ext .js, .jsx src/', {overwrite: OVERWRITE})
-Validate.installScript('lint:sass', 'lint-sass src/**/*.scss -c -v', {overwrite: OVERWRITE})
+Validate.installScript('lint:js', 'eslint --ext .js, .jsx src/', {overwrite: OVERWRITE})
+Validate.installScript('lint:sass', 'sass-lint src/**/*.scss -c -v', {overwrite: OVERWRITE})
 Validate.installScript('lint', 'npm run lint:js && npm run lint:sass', {overwrite: OVERWRITE})
 
 º('Scripts added! Add hooks and configure them')
