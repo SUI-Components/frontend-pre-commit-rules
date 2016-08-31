@@ -2,11 +2,13 @@
 
 'use strict'
 
-const OVERWRITE = 1;
+const OVERWRITE = 1
 
 const Validate = require('git-validate')
 
-Validate.copy('../config/.eslintrc.js', '.eslintrc.js', OVERWRITE)
+console.log('Copying config files...')
+
+Validate.copy('../config/.eslintrc', '.eslintrc', OVERWRITE)
 Validate.copy('../config/.eslintignore', '.eslintignore', OVERWRITE)
 Validate.copy('../config/.editorconfig', '.editorconfig', OVERWRITE)
 Validate.copy('../config/.scss-lint.yml', '.scss-lint.yml', OVERWRITE)

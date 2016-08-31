@@ -4,33 +4,13 @@
 
 ![SUI Engineers banner](docs/img/SUI-engineers.png "SUI Engineers banner")
 
+[![JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+
 ----
 
 These linting rules comes preconfigured as a [precommit hook](http://githooks.com/). This means it will not allow you nor anyone in your project to commit to the repository if any of these rules are invalid. Although it might look restrictive at the beginning offers many advantages later on as commented above.
 
 In order to do so we decided to rely on [Eslint](http://eslint.org/), a great Javascript linter by [Nicholas C. Zakas](https://twitter.com/slicknet) and [SASS-Lint](https://github.com/sasstools/sass-lint) for... yes! SASS linting.
-
-#### TL;DR
-If you are wondering if this set of rules if for you here's a brief description. Keep reading to get a detailed description.
-
-####**Your SASS code must:**
-- Merge rules of same selector.
-- Set properties to `0` instead of `none`.
-- Match the selector format set in the [Naming Convention](#naming-convention)
-- ...
-
-####**Your Javascript code must**
-- Be free of alert(), console.log() and Debugger.
-- Avoid references to Prototype.
-- Use dot notation, camel case and single quotes.
-- ...
-
-####**Your ReactJS code must**
-- Include just one component per file.
-- Always declare expected proptype.
-- Use JSX.
-- ...
-
 
 In addition, ES6 syntax is fully supported thanks to BabelJS. Feel free to use the right transpiling level for your project. Set the [right value](https://babeljs.io/docs/usage/babelrc/) in `.babelrc` config file.
 
@@ -47,35 +27,31 @@ In addition, ES6 syntax is fully supported thanks to BabelJS. Feel free to use t
 ----
 
 # Linter Installation
-This documentation is a step by step guide to add JS, SASS and React linter in **Sublime Text 3**. Feel free to use the code editor of your choice. Just make sure you can add *Eslint* and *SASS-Lint* config files.
 
-### Step 1 - Package Control
+In order to be able to lint your files in the editor, you must be sure to install some packages in your editor:
+
+### Atom Installation
+- Linter Eslint https://github.com/AtomLinter/linter-eslint
+- Sass lint https://atom.io/packages/linter-sass-lint
+- Scss lint https://atom.io/packages/linter-scss-lint
+
+### Sublime Text Installation
+
+#### Step 1 - Package Control
 - Make sure you have Package Control installed in your copy of Sublime Text by pressing `cmd + Shift + p` and typing `Package Control: Install Package`.
 - If doesn't show up check out this page and install it first: [packagecontrol.io](https://packagecontrol.io/installation).
+This documentation is a step by step guide to add JS, SASS and React linter in **Sublime Text 3**. Feel free to use the code editor of your choice. Just make sure you can add *Eslint* and *SASS-Lint* config files.
 
-### Step 2 - Install Sublime Linting Plugins
+#### Step 2 - Install Sublime Linting Plugins
 - Open Package Control and install: `SublimeLinter` [Sublime Linter Plugin](http://www.sublimelinter.com/en/latest/).
 **Important Note: This plugin is no longer including linting files so you need to install them apart.**
 
-### Step 3 - Install Node Sass library
-- SASS linting is now managed by `node-sass`
-- Install node-sass globally by typing: `npm i -g node-sass`
-- Files you wish to lint must be written in SCSS (not SASS) syntax.
-
-### Step 4 - Install SASS Linting plugin
+#### Step 3 - Install SASS Linting plugin
 
 - Open Package control in Sublime Text by typing: `cmd + shift + p` and then search for `install package`
-- Select `SublimeLinter-contrib-sass-lint`
-- Reopen Sublime Text if necessary.
+- Select `SublimeLinter-contrib-sass-lint` and install.
+- Select `SublimeLinter-contrib-eslint` and install.
 - SASS linting rules must be defined in a `.sass-lint.yml` file in the root directory.
-
-### Step 5 - Install Eslint for JS Linting plugin
-
-- Install the Eslint CLI from a global node package by typing `npm i -g eslint` in your terminal.
-- Open Package control by typing: `cmd + shift + p` and then search for `install package`
-- Select `SublimeLinter-contrib-eslint`
-- Reopen Sublime Text if necessary
-- Javascript linting rules must be defined in a `.eslintrc` file in the root directory.
 
 ----
 
@@ -691,7 +667,7 @@ The max nesting selectors in SASS files is: **4 levels**.
 
 ```scss
 .sui-Component {
-… 
+…
 }
 .sui-Component-header {
 …
@@ -1241,7 +1217,7 @@ var err = 'x';
 try {
     throw "problem";
 } catch (err) {  /*error Value of 'err' may be overwritten in IE 8 and earlier.*/
-    
+
     [...]
 }
 ```
@@ -1788,7 +1764,7 @@ With this rule enabled the following characters will cause warnings outside of s
 if(foo  === "bar") {}
 ```
 
-It's hard to tell, but there are two spaces between `foo` and `===`. 
+It's hard to tell, but there are two spaces between `foo` and `===`.
 Multiple spaces such as this are generally frowned upon in favor of single spaces:
 
 ```javascript
@@ -2000,9 +1976,9 @@ function foo() {
 This rule aims to reduce the complexity of your code by allowing you to configure the maximum depth blocks can be nested in a function. As such, it will warn when blocks are nested too deeply.
 
 ### New-cap
-**Error** > Require Constructors to Use Initial Caps. 
+**Error** > Require Constructors to Use Initial Caps.
 
-The `new` operator in JavaScript creates a new instance of a particular type of object. That type of object is represented by a constructor function. 
+The `new` operator in JavaScript creates a new instance of a particular type of object. That type of object is represented by a constructor function.
 
 Since constructor functions are just regular functions, the only defining characteristic is that `new` is being used as part of the call. Native JavaScript functions begin with an uppercase letter to distinguish those functions that are to be used as constructors from functions that are not. Many style guides recommend following this pattern to more easily determine which functions are to be used as constructors.
 
@@ -2261,9 +2237,9 @@ typeof bar === typeof qux
 Require immediate function invocation to be wrapped in parentheses.
 
 ```javascript
-var (x = function () { 
-    return { 
-        y: 1 
+var (x = function () {
+    return {
+        y: 1
     };
 })();
 ```
@@ -2273,7 +2249,7 @@ Since function statements cannot be immediately invoked, and function expression
 ### Wrap-regex
 **Allowed** > Require Regex Literals to be Wrapped.
 
-When a regular expression is used in certain situations, it can end up looking like a division operator. 
+When a regular expression is used in certain situations, it can end up looking like a division operator.
 
 This is used to disambiguate the slash operator and facilitates more readable code.
 
@@ -2281,7 +2257,7 @@ The following patterns are considered problems:
 
 ```javascript
 function a() {
-    return /foo/.test("bar"); 
+    return /foo/.test("bar");
     /*error Wrap the regexp literal in parens to disambiguate the slash.*/
 }
 ```
