@@ -53,16 +53,12 @@
     "rules",
     "schibstedspain"
   ],
-  "bin": {
-    "lint-js": "/node_modules/.bin/eslint",
-    "lint-sass": "/node_modules/.bin/sass-lint"
-  },
   "scripts": {
     "install": "node bin/install.js",
     "doc": "npm run doc:build",
     "doc:build": "gh-pages -d docs",
-    "lint:js": "lint-js --ext .js, .jsx src/",
-    "lint:sass": "lint-sass src/**/*.scss -c -v",
+    "lint:js": "node_modules/.bin/eslint --ext .js, .jsx src/",
+    "lint:sass": "node_modules/.bin/sass-lint src/**/*.scss -c -v",
     "lint": "npm run lint:js && npm run lint:sass"
   },
   "repository": {
