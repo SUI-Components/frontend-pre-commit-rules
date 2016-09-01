@@ -17,12 +17,12 @@ Validate.copy('../config/.sass-lint.yml', '.sass-lint.yml', OVERWRITE)
 
 º('Files copied! Adding scripts to package.json')
 
-Validate.installScript('lint:js', 'eslint --ext .js, .jsx src/', {overwrite: OVERWRITE})
-Validate.installScript('lint:sass', 'sass-lint src/**/*.scss -c -v', {overwrite: OVERWRITE})
+Validate.installScript('lint:js', 'node_modules/.bin/eslint --ext .js,.jsx src/', {overwrite: OVERWRITE})
+Validate.installScript('lint:sass', 'node_modules/.bin/sass-lint src/**/*.scss -c -v', {overwrite: OVERWRITE})
 Validate.installScript('lint', 'npm run lint:js && npm run lint:sass', {overwrite: OVERWRITE})
 
 º('Scripts added! Add hooks and configure them')
 Validate.installHooks('pre-commit')
 Validate.configureHook('pre-commit', ['lint', 'test'])
 º('Pre-commit-rules completely configured')
-º('[finished] frontend-pre-commit-rules')
+º('[finished] frontend-pre-commit-rules\n')
