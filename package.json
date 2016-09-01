@@ -61,8 +61,8 @@
     "install": "node bin/install.js",
     "doc": "npm run doc:build",
     "doc:build": "gh-pages -d docs",
-    "lint:js": "eslint --ext .js, .jsx src/",
-    "lint:sass": "sass-lint src/**/*.scss -c -v",
+    "lint:js": "lint-js --ext .js, .jsx src/",
+    "lint:sass": "lint-sass src/**/*.scss -c -v",
     "lint": "npm run lint:js && npm run lint:sass"
   },
   "repository": {
