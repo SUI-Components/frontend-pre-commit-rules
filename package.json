@@ -53,6 +53,10 @@
     "rules",
     "schibstedspain"
   ],
+  "bin": {
+    "lint-js": "eslint",
+    "lint-sass": "sass-lint"
+  },
   "scripts": {
     "install": "node bin/install.js",
     "doc": "npm run doc:build",
