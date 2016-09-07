@@ -54,7 +54,7 @@
     "schibstedspain"
   ],
   "scripts": {
-    "install": "scripts/install.js",
+    "postinstall": "scripts/install.js",
     "doc": "npm run doc:build",
     "doc:build": "gh-pages -d docs",
     "lint:js": "node_modules/.bin/eslint --ext .js,.jsx src/",
