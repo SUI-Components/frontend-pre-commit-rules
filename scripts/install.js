@@ -17,8 +17,8 @@ Validate.copy('../config/.sass-lint.yml', '.sass-lint.yml', OPTIONS)
 
 º('Files copied! Adding scripts to package.json')
 
-Validate.installScript('lint:js', 'node_modules/.bin/eslint --ext .js,.jsx src/', OPTIONS)
-Validate.installScript('lint:sass', 'node_modules/.bin/sass-lint src/**/*.scss -c -v', OPTIONS)
+Validate.installScript('lint:js', 'node_modules/.bin/linter-js --ext .js,.jsx src/', OPTIONS)
+Validate.installScript('lint:sass', 'node_modules/.bin/linter-sass src/**/*.scss -c -v', OPTIONS)
 Validate.installScript('lint', 'npm run lint:js && npm run lint:sass', OPTIONS)
 
 º('Scripts added! Add hooks and configure them')

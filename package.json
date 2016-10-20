@@ -54,12 +54,16 @@
     "schibstedspain"
   ],
   "scripts": {
-    "postinstall": "scripts/install.js",
+    "install": "scripts/install.js",
     "doc": "npm run doc:build",
     "doc:build": "gh-pages -d docs",
     "lint:js": "node_modules/.bin/eslint --ext .js,.jsx src/",
     "lint:sass": "node_modules/.bin/sass-lint src/**/*.scss -c -v",
     "lint": "npm run lint:js && npm run lint:sass"
+  },
+  "bin": {
+    "linter-js": "./node_modules/.bin/eslint",
+    "linter-sass": "./node_modules/.bin/sass-lint"
   },
   "repository": {
     "type": "git",
