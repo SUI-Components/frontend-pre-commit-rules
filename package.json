@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/frontend-pre-commit-rules",
-  "version": "7.0.23",
+  "version": "7.1.0-alpha.0",
   "description": "Frontend precommit rules",
   "contributors": [
     {
@@ -57,7 +57,7 @@
     "install": "scripts/install.js",
     "doc": "npm run doc:build",
     "doc:build": "gh-pages -d docs",
-    "lint:js": "node_modules/.bin/eslint --ext .js,.jsx src/",
+    "lint:js": "node_modules/.bin/eslint --ext .js,.jsx src/ test/",
     "lint:sass": "node_modules/.bin/sass-lint src/**/*.scss -c -v",
     "lint": "npm run lint:js && npm run lint:sass"
   },
@@ -74,14 +74,14 @@
     "gh-pages": "0.11.0"
   },
   "dependencies": {
-    "eslint": "^3.8.1",
-    "eslint-config-standard": "^6.2.0",
-    "eslint-config-standard-react": "^4.2.0",
-    "eslint-plugin-promise": "^3.3.0",
-    "eslint-plugin-react": "^6.3.0",
-    "eslint-plugin-standard": "^2.0.1",
-    "git-validate": "^2.2.2",
-    "sass-lint": "1.9.1"
+    "eslint": "3.13.1",
+    "eslint-config-standard": "6.2.1",
+    "eslint-config-standard-react": "4.2.0",
+    "eslint-plugin-promise": "3.4.0",
+    "eslint-plugin-react": "6.9.0",
+    "eslint-plugin-standard": "2.0.1",
+    "git-validate": "2.2.2",
+    "sass-lint": "1.10.2"
   },
   "pre-commit": [
     "lint",
