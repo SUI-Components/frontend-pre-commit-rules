@@ -1,4 +1,7 @@
 {
+  "env": {
+    "mocha": true
+  },
   "extends": ["standard", "standard-react"],
   "rules": {
     "react/jsx-equals-spacing": ["warn", "never"],
