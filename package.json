@@ -54,10 +54,10 @@
     "schibstedspain"
   ],
   "scripts": {
-    "install": "scripts/install.js",
+    "install": "node scripts/install.js",
     "doc": "npm run doc:build",
     "doc:build": "gh-pages -d docs",
-    "lint:js": "node_modules/.bin/eslint --ext .js,.jsx src/ test/",
+    "lint:js": "node_modules/.bin/eslint --ext .js,.jsx ./",
     "lint:sass": "node_modules/.bin/sass-lint src/**/*.scss -c -v",
     "lint": "npm run lint:js && npm run lint:sass"
   },
