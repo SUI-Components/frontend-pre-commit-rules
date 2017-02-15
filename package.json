@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/frontend-pre-commit-rules",
-  "version": "7.1.4",
+  "version": "7.1.5",
   "description": "Frontend precommit rules",
   "contributors": [
     {
@@ -74,10 +74,10 @@
     "gh-pages": "0.11.0"
   },
   "dependencies": {
-    "eslint": "3.13.1",
+    "eslint": "^3.15.0",
     "eslint-config-standard": "6.2.1",
     "eslint-config-standard-react": "4.2.0",
-    "eslint-plugin-promise": "3.4.0",
+    "eslint-plugin-promise": "^3.4.1",
     "eslint-plugin-react": "6.9.0",
     "eslint-plugin-standard": "2.0.1",
     "git-validate": "2.2.2",
