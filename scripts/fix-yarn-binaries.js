@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 
 // That's a temporary fix until this is fixed: https://github.com/yarnpkg/yarn/issues/760
 // it doesn't work yet as the scripts are being ignored as well for subdependencies

@@ -4,6 +4,8 @@
   },
   "extends": ["standard", "standard-react"],
   "rules": {
+    "no-console": "error",
+    "no-debugger": "error",
     "react/jsx-equals-spacing": ["warn", "never"],
     "react/jsx-no-duplicate-props": ["warn", { "ignoreCase": true }],
     "react/jsx-no-undef": "warn",
