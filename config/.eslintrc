@@ -1,9 +1,13 @@
 {
+  "parser": "babel-eslint",
   "env": {
     "mocha": true
   },
   "extends": ["standard", "standard-react"],
   "rules": {
+    "no-console": "error",
+    "no-debugger": "error",
+    "no-nested-ternary": "warn",
     "react/jsx-equals-spacing": ["warn", "never"],
     "react/jsx-no-duplicate-props": ["warn", { "ignoreCase": true }],
     "react/jsx-no-undef": "warn",
@@ -18,6 +22,7 @@
     "react/no-is-mounted": "warn",
     "react/no-multi-comp": ["warn", { "ignoreStateless": true }],
     "react/react-in-jsx-scope": "warn",
-    "react/require-render-return": "warn"
+    "react/require-render-return": "warn",
+    "strict": 0
   }
 }

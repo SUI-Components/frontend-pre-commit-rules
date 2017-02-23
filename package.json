@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/frontend-pre-commit-rules",
-  "version": "7.2.0",
+  "version": "7.2.1",
   "description": "Frontend precommit rules",
   "keywords": [
     "ReactJS",
