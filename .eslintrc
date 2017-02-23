@@ -1,11 +1,11 @@
 {
-  "parser": "babel-eslint",
   "env": {
     "mocha": true
   },
   "extends": ["standard", "standard-react"],
+  "parser": "babel-eslint",
   "rules": {
-    "no-console": "error",
+    "no-console": "warn",
     "no-debugger": "error",
     "no-nested-ternary": "warn",
     "react/jsx-equals-spacing": ["warn", "never"],
