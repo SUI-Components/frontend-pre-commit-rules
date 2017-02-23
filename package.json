@@ -1,6 +1,6 @@
 {
   "name": "@schibstedspain/frontend-pre-commit-rules",
-  "version": "7.2.2",
+  "version": "7.2.3",
   "description": "Frontend precommit rules",
   "keywords": [
     "ReactJS",
@@ -37,7 +37,7 @@
     "gh-pages": "0.11.0"
   },
   "dependencies": {
-    "babel-eslint": "6.1.2",
+    "babel-eslint": "7.1.1",
     "eslint": "3.16.1",
     "eslint-config-standard": "6.2.1",
     "eslint-config-standard-react": "4.2.0",
