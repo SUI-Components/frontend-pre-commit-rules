@@ -14,4 +14,5 @@
   }
   "eslintConfig": "./node_modules/@schibstedspain/linting-rules/eslintrc.js",
   "sasslintConfig": "./node_modules/@schibstedspain/linting-rules/sass-lint.yml"
-}```
+}
+```
