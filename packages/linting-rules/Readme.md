@@ -1,0 +1,1 @@
+#Schibsted Spain Linting Rules

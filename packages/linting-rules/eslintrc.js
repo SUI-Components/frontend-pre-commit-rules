@@ -1,4 +1,4 @@
-{
+module.exports = {
   "env": {
     "mocha": true
   },
@@ -26,3 +26,4 @@
     "strict": 0
   }
 }
+
