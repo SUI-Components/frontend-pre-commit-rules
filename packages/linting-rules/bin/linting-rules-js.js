@@ -18,7 +18,8 @@ const child = execFile(
     '--ext', '.js,.jsx',
     '--ignore-pattern', 'lib,dist',
     './'
-  ].concat(args)
+  ].concat(args),
+  err => err && err.code && process.exit(err.code)
 )
 child.stdout.pipe(process.stdout)
 child.stderr.pipe(process.stderr)
