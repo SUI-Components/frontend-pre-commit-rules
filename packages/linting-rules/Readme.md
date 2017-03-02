@@ -20,6 +20,7 @@ Al igual que en el caso anterior no puedes pasar una nueva configuración, y las
 ## Como hago funcionar mi editor con estas reglas:
 
 1.- Instala el plugin de eslint/sassLint adecuado para tu editor.
+
 2.- Agregar a tu package json estas lineas:
 
 ```
