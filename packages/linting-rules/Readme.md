@@ -12,7 +12,7 @@
   "devDependencies": {
     "@schibstedspain/linting-rules": "1.0.0-beta.1"
   }
-  "eslintConfig": "./node_modules/@schibstedspain/linting-rules/eslintrc.js",
+  "eslintConfig": { "extends": ["./node_modules/@schibstedspain/linting-rules/eslintrc.js"]},,
   "sasslintConfig": "./node_modules/@schibstedspain/linting-rules/sass-lint.yml"
 }
 ```
