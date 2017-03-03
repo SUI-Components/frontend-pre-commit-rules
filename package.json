@@ -1,7 +1,8 @@
 {
-  "name": "@schibstedspain/frontend-pre-commit-rules",
-  "version": "7.2.3",
-  "description": "Frontend precommit rules",
+  "name": "@schibstedspain/linting-rules-packages",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Set of packages for linting rules",
   "keywords": [
     "ReactJS",
     "JSX",
@@ -16,14 +17,7 @@
     "rules",
     "schibstedspain"
   ],
-  "scripts": {
-    "install": "node scripts/install.js",
-    "doc": "npm run doc:build",
-    "doc:build": "gh-pages -d docs",
-    "lint:js": "node_modules/.bin/eslint --ext .js,.jsx ./",
-    "lint:sass": "node_modules/.bin/sass-lint src/**/*.scss -c -v",
-    "lint": "npm run lint:js && npm run lint:sass"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/scm-spain/frontend-pre-commit-rules.git"
@@ -32,23 +26,5 @@
   "bugs": {
     "url": "https://github.com/scm-spain/frontend-pre-commit-rules/issues"
   },
-  "homepage": "https://github.com/scm-spain/frontend-pre-commit-rules#readme",
-  "devDependencies": {
-    "gh-pages": "0.11.0"
-  },
-  "dependencies": {
-    "babel-eslint": "7.1.1",
-    "eslint": "3.16.1",
-    "eslint-config-standard": "6.2.1",
-    "eslint-config-standard-react": "4.2.0",
-    "eslint-plugin-promise": "3.4.2",
-    "eslint-plugin-react": "6.10.0",
-    "eslint-plugin-standard": "2.0.1",
-    "git-validate": "2.2.2",
-    "sass-lint": "1.10.2"
-  },
-  "pre-commit": [
-    "lint",
-    "test"
-  ]
+  "homepage": "https://github.com/scm-spain/frontend-pre-commit-rules#readme"
 }
