@@ -15,8 +15,11 @@ const child = execFile(
   ESLINT_PATH,
   [
     '-c', CONFIG_PATH,
-    '--ext', '.js,.jsx',
-    '--ignore-pattern', 'lib,dist',
+    '--ext', 'jsjsx',
+    '--ext', 'jsx',
+    '--ignore-pattern', 'lib',
+    '--ignore-pattern', 'dist',
+    '--ignore-pattern', 'node_modules',
     './'
   ].concat(args),
   err => err && err.code && process.exit(err.code)
