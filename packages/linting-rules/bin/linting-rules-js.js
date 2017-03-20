@@ -15,7 +15,7 @@ const child = execFile(
   ESLINT_PATH,
   [
     '-c', CONFIG_PATH,
-    '--ext', 'jsjsx',
+    '--ext', 'js',
     '--ext', 'jsx',
     '--ignore-pattern', 'lib',
     '--ignore-pattern', 'dist',
@@ -26,4 +26,3 @@ const child = execFile(
 )
 child.stdout.pipe(process.stdout)
 child.stderr.pipe(process.stderr)
-
