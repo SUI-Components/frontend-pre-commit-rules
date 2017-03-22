@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const {execFile} = require('child_process')
 const {resolve} = require('path')
-
+const CODE_KO = 1
 const SASS_LINT_PATH = resolve(__dirname, '..', '..', '..', '.bin', 'sass-lint')
 const CONFIG_PATH = resolve(__dirname, '..', 'sass-lint.yml')
 
@@ -19,7 +19,10 @@ const child = execFile(
     '-v',
     'src/**/*.scss'
   ].concat(args),
-  err => err && err.code && process.exit(err.code)
+  (err, stdout) => {
+    stdout && process.exit(CODE_KO)
+    err && err.code && process.exit(err.code)
+  }
 )
 child.stdout.pipe(process.stdout)
 child.stderr.pipe(process.stderr)
