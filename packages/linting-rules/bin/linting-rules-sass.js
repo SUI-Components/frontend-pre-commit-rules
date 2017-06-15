@@ -20,8 +20,7 @@ const child = execFile(
     'src/**/*.scss'
   ].concat(args),
   (err, stdout) => {
-    stdout && process.exit(CODE_KO)
-    err && err.code && process.exit(err.code)
+    process.exit(err && err.code || 0)
   }
 )
 child.stdout.pipe(process.stdout)
