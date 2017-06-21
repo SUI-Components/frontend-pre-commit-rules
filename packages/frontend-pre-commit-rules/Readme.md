@@ -1,3 +1,7 @@
+![deprecated](https://img.shields.io/badge/stability-deprecated-red.svg) THIS PACKAGE IS **DEPRECATED!**
+
+**Use [@schibstedspain/sui-precommit](https://www.npmjs.com/package/@schibstedspain/sui-precommit) instead.**
+
 # Frontend pre commit rules
 
 Este paquete instala un precommit (GIT) que pasa las tareas de linting para JS y para Sass. Además agrega tres nuevas tareas al paquete de NPM.
