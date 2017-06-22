@@ -1,3 +1,7 @@
+![deprecated](https://img.shields.io/badge/stability-deprecated-red.svg) THIS PACKAGE IS **DEPRECATED!**
+
+**Use [@schibstedspain/sui-lint](https://www.npmjs.com/package/@schibstedspain/sui-lint) instead.**
+
 #Schibsted Spain Linting Rules
 
 ## CLI
@@ -8,7 +12,7 @@ Para ficheros JS:
 $ linting-rules js [options]
 ```
 Puedes pasarle más misma opciones que acepta `eslint`. Con la única diferencia que no puedes pasar una nueva configuración ya que está fijada a la nuestra.
-Por defecto va a buscar todos los ficheros `js|jsx` desde el root de tu proyecto excluyendo las carpetas `lib|dist` 
+Por defecto va a buscar todos los ficheros `js|jsx` desde el root de tu proyecto excluyendo las carpetas `lib|dist`
 
 Para ficheros Sass:
 
